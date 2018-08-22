@@ -3,6 +3,8 @@ import java.net.DatagramPacket;
 import java.net.InetAddress;
 import java.net.MulticastSocket;
 import java.util.Scanner;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
 
 class Sender extends Thread{
 
@@ -10,6 +12,7 @@ class Sender extends Thread{
     private MulticastSocket socket;
     private InetAddress group;
     private Integer id;
+    public BlockingQueue<Message> queue = new LinkedBlockingQueue<Message>();
 
     public Sender(MulticastSocket s, InetAddress group, Integer port, Integer id) {
         this.socket = s;
@@ -20,26 +23,23 @@ class Sender extends Thread{
 
     @Override
     public void run() {
-        while (true) {
-            try {
-                Scanner scanner = new Scanner(System.in);
-                String message = scanner.nextLine();
+        try {
+            while (true) {
+                Message message = queue.take();
+                if (message == null)
+                    continue;
 
-
-                if (message.equals("quit")) {
-                    this.socket.leaveGroup(group);
-                    this.socket.close();
-                    System.out.println("Flwwws");
-                    break;
-                }
-
-                message = new Message(message, this.id).encode();
-                byte[] m = message.getBytes();
-                DatagramPacket messageOut = new DatagramPacket(m, m.length, this.group, this.port);
-                this.socket.send(messageOut);
-            } catch (IOException e) {
-                System.out.println("Conexão encerrada");
+                this.send(message);
             }
+        } catch (IOException | InterruptedException e) {
+            System.out.println("Conexão encerrada");
         }
+    }
+
+    private void send(Message message) throws IOException{
+        String str_message = message.encode();
+        byte[] m = str_message.getBytes();
+        DatagramPacket messageOut = new DatagramPacket(m, m.length, this.group, this.port);
+        this.socket.send(messageOut);
     }
 }
