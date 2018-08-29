@@ -2,7 +2,6 @@ import java.net.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
@@ -13,6 +12,7 @@ public class Legion {
     private Integer id;
     private MulticastSocket socket;
     private List<Integer> known_users;
+    private List<Integer> resources;
     private BlockingQueue<Message> queue;
 
     private Sender sender;
@@ -24,6 +24,7 @@ public class Legion {
         this.port = port;
         this.id = id;
         this.known_users = new ArrayList<Integer>();
+        this.resources = new ArrayList<Integer>();
         this.queue = new LinkedBlockingQueue<Message>();
     }
 
@@ -57,8 +58,8 @@ public class Legion {
                     continue;
                 }
 
-                if (!message.user_id.equals(id)) {
-                    this.ProcessMessage(message);
+                if (!message.from_user.equals(id) && (message.to_user.equals(this.id) || message.to_user.equals(-1))) {
+                    this.processMessage(message);
                 }
             }
         } catch (InterruptedException e) {
@@ -68,38 +69,67 @@ public class Legion {
 
     private void connect() {
         try {
-            this.sender.queue.put(new Message(this.id, Message.Code.NEW_USER));
+            rasponseToNewUser(Message.BROADCAST_CODE);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
 
-    private void ProcessMessage(Message message) throws InterruptedException {
+    private void processMessage(Message message) throws InterruptedException {
         switch (message.code) {
-            case NEW_USER:
-                if (isKnown(message.user_id))
-                    return;
-
-                this.known_users.add(message.user_id);
-                System.out.println("New user connected with id:" + message.user_id.toString());
-                sender.queue.put(new Message(this.id, Message.Code.NEW_USER));
-
-                break;
             case INTERNAL_INPUT:
-                message.code = Message.Code.GENERIC;
-                message.user_id = this.id;
-                sender.queue.put(message);
+                internalInput(message);
                 break;
+
+            case NEW_USER:
+                if (this.known_users.contains(message.from_user))
+                    return;
+                this.known_users.add(message.from_user);
+
+                System.out.println("New user connected with id:" + message.from_user.toString());
+
+                rasponseToNewUser(message.from_user);
+                break;
+
+            case EXIT:
+                this.known_users.remove(message.from_user);
+                break;
+
+            case REQUEST_RESOURCE:
+                acceptOrDenyResourceRequest(message);
+                return;
+
             case GENERIC:
-                System.out.println(message.user_id);
+                System.out.println(message.data);
         }
     }
 
-    private boolean isKnown(Integer id) {
-       for (int i = 0; i < this.known_users.size(); i++) {
-           if (id.equals(this.known_users.get(i)))
-               return true;
-       }
-        return false;
+    private void acceptOrDenyResourceRequest(Message message) throws InterruptedException {
+        if (this.resources.contains(Integer.parseInt(message.data))) {
+            sender.queue.put(new Message(this.id, message.from_user,  Message.Code.REQUEST_DENIED, message.data));
+            return;
+        }
+        sender.queue.put(new Message(this.id, message.from_user,  Message.Code.REQUEST_ACCEPTED, message.data));
+        return;
+    }
+
+    private void rasponseToNewUser(Integer to_user) throws InterruptedException {
+        sender.queue.put(new Message(this.id, to_user, Message.Code.NEW_USER));
+    }
+
+    private void internalInput(Message message) throws InterruptedException {
+        switch (message.data) {
+            case "exit":
+                message.to_user = Message.BROADCAST_CODE;
+                message.code = Message.Code.EXIT;
+                break;
+            case "request":
+                message.to_user = Message.BROADCAST_CODE;
+                message.code = Message.Code.REQUEST_RESOURCE;
+                message.data = message.data.split(" ")[1];
+                break;
+        }
+        message.from_user = this.id;
+        sender.queue.put(message);
     }
 }
