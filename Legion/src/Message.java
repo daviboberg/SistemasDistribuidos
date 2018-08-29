@@ -36,6 +36,8 @@ public class Message {
         REQUEST_ACCEPTED,
         EXIT,
         INTERNAL_INPUT,
+        DEAD_PEER,
+        RESOURCE_TIMEOUT,
         GENERIC
     }
 }
