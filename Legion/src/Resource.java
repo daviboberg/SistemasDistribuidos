@@ -1,5 +1,3 @@
-import org.omg.Messaging.SYNC_WITH_TRANSPORT;
-
 import java.util.*;
 
 public class Resource {
@@ -19,9 +17,9 @@ public class Resource {
         this.peers_response = new HashMap<>();
     }
 
-    void updateResourceStatus(List<Integer> peers_to_answer) {
-        for ( Integer v : peers_to_answer ) {
-            Message.Code peer_response = this.peers_response.get(v);
+    void updateResourceStatus(List<User> peers_to_answer) {
+        for ( User user : peers_to_answer ) {
+            Message.Code peer_response = this.peers_response.get(user.id);
             if (peer_response == null) {
                 return;
             }
@@ -39,13 +37,13 @@ public class Resource {
         this.peers_response.put(peer_id, peer_request_status);
     }
 
-    List<Integer> getAllPeersWithoutResponse(List<Integer> known_users) {
-        List<Integer> no_response_peers = new ArrayList<Integer>();
+    List<User> getAllPeersWithoutResponse(List<User> known_users) {
+        List<User> no_response_peers = new ArrayList<User>();
 
-        for ( Integer v : known_users ) {
-            Message.Code peer_response = this.peers_response.get(v);
+        for ( User user : known_users ) {
+            Message.Code peer_response = this.peers_response.get(user.id);
             if (peer_response == null) {
-                no_response_peers.add(v);
+                no_response_peers.add(user);
             }
         }
         return no_response_peers;

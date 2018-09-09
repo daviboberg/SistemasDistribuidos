@@ -28,7 +28,7 @@ class Receiver extends Thread {
     public Message getMessage() {
         String message = "";
         try {
-            byte[] buffer = new byte[1000];
+            byte[] buffer = new byte[8000];
             DatagramPacket messageIn = new DatagramPacket(buffer, buffer.length);
             this.socket.receive(messageIn);
             message = new String(messageIn.getData());

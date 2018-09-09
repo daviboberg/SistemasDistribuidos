@@ -1,7 +1,9 @@
-import org.omg.Messaging.SYNC_WITH_TRANSPORT;
-
 import java.net.*;
 import java.io.*;
+import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
+import java.security.PublicKey;
+import java.security.spec.InvalidKeySpecException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.TimerTask;
@@ -14,11 +16,14 @@ class Legion {
     private Integer port;
     private Integer my_id;
 
-    private List<Integer> known_users;
+//    private HashMap<Integer, PublicKey> known_users;
+    private List<User> known_users;
     private BlockingQueue<Message> queue;
     private List<Resource> resources;
 
     private Sender sender;
+
+    private Cryptography cryptography;
 
     Legion(String ip, Integer port, Integer my_id) {
         this.ip = ip;
@@ -27,10 +32,13 @@ class Legion {
         this.known_users = new ArrayList<>();
         this.resources = new ArrayList<>();
         this.queue = new LinkedBlockingQueue<>();
+        this.cryptography = new Cryptography();
     }
 
     void init() {
         try {
+            this.cryptography.generateKeys();
+
             InetAddress group = InetAddress.getByName(this.ip);
             MulticastSocket socket = new MulticastSocket(this.port);
             socket.joinGroup(group);
@@ -45,7 +53,7 @@ class Legion {
             receiver.start();
 
             this.connect();
-        } catch (IOException e) {
+        } catch (Exception e) {
             System.out.println("Conexão encerrada");
         }
     }
@@ -55,16 +63,15 @@ class Legion {
             while (true) {
                 Message message = this.queue.take();
 
-//                System.out.println(" From user: " + message.from_user + " To user: " + message.to_user + " Code: " + message.code + " Message Received: " + message.data);
-
                 boolean is_not_from_myself = !message.from_user.equals(my_id);
                 boolean is_to_myself = message.to_user.equals(this.my_id);
                 boolean is_to_everyone = message.to_user.equals(Message.BROADCAST_CODE);
+
                 if (is_not_from_myself && (is_to_myself || is_to_everyone)) {
                     this.processMessage(message);
                 }
             }
-        } catch (InterruptedException e) {
+        } catch (InterruptedException | NoSuchAlgorithmException | NoSuchProviderException | InvalidKeySpecException e) {
             e.printStackTrace();
         }
     }
@@ -77,25 +84,28 @@ class Legion {
         }
     }
 
-    private void processMessage(Message message) throws InterruptedException {
+    private void processMessage(Message message) throws InterruptedException, NoSuchAlgorithmException, NoSuchProviderException, InvalidKeySpecException {
         switch (message.code) {
             case INTERNAL_INPUT:
                 internalInput(message);
                 break;
 
             case NEW_USER:
-                if (this.known_users.contains(message.from_user))
+                if (isKnownUser(message.from_user))
                     return;
 
-                this.known_users.add(message.from_user);
+                System.out.println("New user connected with id:" + message.from_user.toString());
 
-                System.out.println("New user connected with my_id:" + message.from_user.toString());
+                User new_user;
+                PublicKey publicKey = Cryptography.stringToPublicKey(message.data);
+                new_user = new User(message.from_user, publicKey);
+                this.known_users.add(new_user);
 
                 responseToNewUser(message.from_user);
                 break;
 
             case EXIT:
-                this.known_users.remove(message.from_user);
+                removeKnownUserById(message.from_user);
                 break;
 
             case REQUEST_RESOURCE:
@@ -107,13 +117,15 @@ class Legion {
                 this.addPeerToResourceResponse(message);
                 break;
 
+            case DEAD_PEER:
+                break;
             case RESOURCE_TIMEOUT:
                 Resource resource = this.getResourceById(Integer.parseInt(message.data));
                 if (resource == null) {
                     break;
                 }
 
-                List<Integer> no_response_peers = resource.getAllPeersWithoutResponse(this.known_users);
+                List<User> no_response_peers = resource.getAllPeersWithoutResponse(this.known_users);
 
                 if (!no_response_peers.isEmpty()) {
                     this.notificationOfDeadPeers(no_response_peers);
@@ -125,9 +137,9 @@ class Legion {
         }
     }
 
-    private void notificationOfDeadPeers(List<Integer> dead_peers) throws InterruptedException {
-        for (Integer id : dead_peers) {
-            this.queue.put(new Message(this.my_id, Message.BROADCAST_CODE, Message.Code.DEAD_PEER, id.toString()));
+    private void notificationOfDeadPeers(List<User> dead_peers) throws InterruptedException {
+        for (User user : dead_peers) {
+            this.queue.put(new Message(this.my_id, Message.BROADCAST_CODE, Message.Code.DEAD_PEER, user.id.toString()));
         }
     }
 
@@ -147,7 +159,6 @@ class Legion {
         boolean i_have_resource = this.containsResource(Integer.parseInt(message.data));
         if (i_have_resource) {
             status = Message.Code.REQUEST_DENIED;
-            System.out.println("Resource " + message.data + " request denied by " + this.my_id);
         }
 
         Message response_message = new Message(this.my_id, user_to_respond, status, message.data);
@@ -155,27 +166,20 @@ class Legion {
     }
 
     private void responseToNewUser(Integer to_user) throws InterruptedException {
-        Message message = new Message(this.my_id, to_user, Message.Code.NEW_USER);
+        Message message = new Message(this.my_id, to_user, Message.Code.NEW_USER, Cryptography.publicKeyToString(this.cryptography.publicKey));
         this.sendMessage(message);
     }
 
     private void addPeerToResourceResponse(Message message) {
         System.out.println(this.resources.size());
-//        List <Resource> resources_obtained = new ArrayList<Resource>();
         for (Resource resource : this.resources) {
             Integer requested_resource = Integer.parseInt(message.data);
             if (resource.id.equals(requested_resource)) {
                 resource.addPeerResponse(message.from_user, message.code);
                 resource.updateResourceStatus(this.known_users);
-//                if (resource.obtained) {
-//                    resources_obtained.add(resource);
-//                }
             }
         }
 
-//        for (Resource obtained_resource : resources_obtained) {
-//            this.resources.remove(obtained_resource);
-//        }
     }
 
     private boolean containsResource(Integer requested_id) {
@@ -239,6 +243,28 @@ class Legion {
 
     private void sendMessage(Message message) throws InterruptedException {
         sender.queue.put(message);
+    }
+
+    private void removeKnownUserById(Integer user_id) {
+        User user_to_remove = null;
+        for (User user : this.known_users) {
+            if (user.id.equals(user_id)) {
+                user_to_remove = user;
+            }
+        }
+
+        if (user_to_remove != null) {
+            this.known_users.remove(user_to_remove);
+        }
+    }
+
+    private boolean isKnownUser(Integer user_id) {
+        for (User user : this.known_users) {
+            if (user.id.equals(user_id)) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }
