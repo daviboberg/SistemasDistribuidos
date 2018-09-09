@@ -1,3 +1,5 @@
+import org.omg.Messaging.SYNC_WITH_TRANSPORT;
+
 import java.util.*;
 
 public class Resource {
@@ -7,13 +9,14 @@ public class Resource {
     private TimerTask task;
     boolean obtained;
 
-    private Map<Integer, Message.Code> peers_response;
+    private  HashMap<Integer, Message.Code> peers_response;
 
     Resource(Integer id, TimerTask task) {
         this.id = id;
         this.task = task;
         this.timer = this.initTimer();
         this.obtained = false;
+        this.peers_response = new HashMap<>();
     }
 
     void updateResourceStatus(List<Integer> peers_to_answer) {
@@ -32,6 +35,7 @@ public class Resource {
     }
 
     void addPeerResponse(Integer peer_id, Message.Code peer_request_status) {
+        System.out.println("Peer id: " + peer_id + " Request status: " + peer_request_status);
         this.peers_response.put(peer_id, peer_request_status);
     }
 

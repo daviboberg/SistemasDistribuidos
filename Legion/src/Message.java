@@ -26,7 +26,7 @@ public class Message {
 
     public static Message decode(String message_to_decode) {
         String s[] = message_to_decode.split(",");
-        return new Message(Integer.parseInt(s[0]), Integer.parseInt(s[1]), Code.valueOf(s[2]), s[3]);
+        return new Message(Integer.parseInt(s[0]), Integer.parseInt(s[1]), Code.valueOf(s[2]), s[3].trim());
     }
 
     public enum Code {
