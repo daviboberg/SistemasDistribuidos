@@ -332,6 +332,15 @@ class Legion {
                         System.out.println(r.id.toString());
                     }
                 }
+                System.out.println("");
+                break;
+
+            case "known-users":
+                System.out.println("Known users: ");
+                for (User r : this.known_users) {
+                    System.out.println(r.id.toString());
+                }
+                System.out.println("");
                 break;
              default:
                  //By default it's print the help
@@ -458,10 +467,12 @@ class Legion {
         System.out.println("");
         System.out.println("request <1-100>\t\t Request resource.");
         System.out.println("release <1-100>\t\t Release resource.");
-        System.out.println("status <1-100>\t\t  Status of resource.");
-        System.out.println("resources-obtained\t\t Show all resources obtained.");
+        System.out.println("status <1-100>\t\t Status of resource.");
+        System.out.println("resources-obtained\t Show all resources obtained.");
+        System.out.println("known-users\t\t Known users.");
         System.out.println("help\t\t Show this info.");
         System.out.println("exit\t\t Closes peer.");
+        System.out.println("");
 
     }
 
