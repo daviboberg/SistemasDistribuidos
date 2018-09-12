@@ -3,8 +3,8 @@ import java.util.concurrent.BlockingQueue;
 
 public class Input extends Thread {
 
-    BlockingQueue<Message> legion_queue;
-    private Integer user_id;
+    BlockingQueue<Message> legion_queue;    //Legion queue
+    private Integer user_id;                //User id
 
 
     public Input(BlockingQueue<Message> legion_queue, Integer user_id) {
@@ -18,8 +18,10 @@ public class Input extends Thread {
 
         try {
             while(true) {
+                //Get text from keyboard
                 String message = scanner.nextLine();
-                legion_queue.put(new Message(0, this.user_id,  Message.Code.INTERNAL_INPUT, message));
+                //Send it as a message to the legion
+                legion_queue.put(new Message(Message.INTERNAL_ID, this.user_id,  Message.Code.INTERNAL_INPUT, message));
             }
         } catch (InterruptedException e) {
             e.printStackTrace();

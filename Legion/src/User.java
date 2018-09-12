@@ -1,11 +1,11 @@
 import java.security.PublicKey;
 
-public class User {
+class User {
 
-    public Integer id;
-    public PublicKey publicKey;
+    Integer id;             //User id
+    PublicKey publicKey;    //Public key
 
-    public User(Integer id, PublicKey publicKey) {
+    User(Integer id, PublicKey publicKey) {
         this.id = id;
         this.publicKey = publicKey;
     }

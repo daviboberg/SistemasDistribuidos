@@ -2,57 +2,85 @@ import java.security.*;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.X509EncodedKeySpec;
 import java.util.Base64;
-import java.util.HashMap;
-import java.util.Map;
 import javax.crypto.Cipher;
 
-public class Cryptography {
+class Cryptography {
 
-    public PrivateKey privateKey;
-    public PublicKey publicKey;
+    private PrivateKey private_key;  //Private key
+    PublicKey public_key;            //Public key
 
-    public void generateKeys() throws Exception {
-        Map<String, Object> keys = getRSAKeys();
+    /**
+     * Generate private and public keys
+     * @throws Exception
+     */
+    void generateKeys() throws Exception {
+        //Get instance of the pair generator
+        KeyPairGenerator key_pair_generator = KeyPairGenerator.getInstance("RSA");
+        //intialize using 2048bits
+        key_pair_generator.initialize(2048);
+        //Generate key pair
+        KeyPair key_pair = key_pair_generator.generateKeyPair();
 
-        this.privateKey = (PrivateKey) keys.get("private");
-        this.publicKey = (PublicKey) keys.get("public");
+        this.private_key = key_pair.getPrivate();
+        this.public_key = key_pair.getPublic();
     }
 
-    private static Map<String,Object> getRSAKeys() throws Exception {
-        KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA");
-        keyPairGenerator.initialize(2048);
-        KeyPair keyPair = keyPairGenerator.generateKeyPair();
-        PrivateKey privateKey = keyPair.getPrivate();
-        PublicKey publicKey = keyPair.getPublic();
-
-        Map<String, Object> keys = new HashMap<String,Object>();
-        keys.put("private", privateKey);
-        keys.put("public", publicKey);
-        return keys;
-    }
-
-    private static String decrypt(String encryptedText, PublicKey publicKey) throws Exception {
+    /**
+     *  Decrypt text using a public key
+     * @param encrypted_text
+     * @param public_key
+     * @return
+     * @throws Exception
+     */
+    static String decrypt(String encrypted_text, PublicKey public_key) throws Exception {
+        //Get's cipher instance
         Cipher cipher = Cipher.getInstance("RSA");
-        cipher.init(Cipher.DECRYPT_MODE, publicKey);
-        return new String(cipher.doFinal(Base64.getDecoder().decode(encryptedText)));
+        //Init cipher in decrypt mode
+        cipher.init(Cipher.DECRYPT_MODE, public_key);
+        //Decrypt message
+        return new String(cipher.doFinal(Base64.getDecoder().decode(encrypted_text)));
     }
 
-    private static String encrypt(String plainText, PrivateKey privateKey) throws Exception {
+    /**
+     * Encrypt text using a private key
+     * @param plain_text
+     * @param private_key
+     * @return
+     * @throws Exception
+     */
+    private static String encrypt(String plain_text, PrivateKey private_key) throws Exception {
+        //Get's cipher instance
         Cipher cipher = Cipher.getInstance("RSA");
-        cipher.init(Cipher.ENCRYPT_MODE, privateKey);
-        return Base64.getEncoder().encodeToString(cipher.doFinal(plainText.getBytes()));
+        //Init cipher in encrypt mode
+        cipher.init(Cipher.ENCRYPT_MODE, private_key);
+        //Encrypt message
+        return Base64.getEncoder().encodeToString(cipher.doFinal(plain_text.getBytes()));
     }
 
-    public static String publicKeyToString(PublicKey publicKey) {
-        byte[] byte_array = publicKey.getEncoded();
+    String encrypt(String plainText) throws Exception {
+        return Cryptography.encrypt(plainText, this.private_key);
+    }
+
+    /**
+     * Convert a public key to a string
+     * @param public_key
+     * @return
+     */
+    static String publicKeyToString(PublicKey public_key) {
+        byte[] byte_array = public_key.getEncoded();
         return Base64.getEncoder().encodeToString(byte_array);
     }
 
-    public static PublicKey stringToPublicKey(String public_key_string) throws NoSuchAlgorithmException, InvalidKeySpecException {
+    /**
+     * Convert a string to public key
+     * @param public_key_string
+     * @return
+     */
+    static PublicKey stringToPublicKey(String public_key_string) throws NoSuchAlgorithmException, InvalidKeySpecException {
         byte[] byte_array = Base64.getDecoder().decode(public_key_string);
 
         X509EncodedKeySpec spec = new X509EncodedKeySpec(byte_array);
-        KeyFactory keyFact = KeyFactory.getInstance("RSA");
-        return keyFact.generatePublic(spec);
+        KeyFactory key_fact = KeyFactory.getInstance("RSA");
+        return key_fact.generatePublic(spec);
     }
 }
