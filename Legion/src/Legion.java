@@ -241,7 +241,7 @@ class Legion {
         User user = this.getUserFromId(message.from_user);
         //We need to decrypt the resource_id using this user public key
         //If he is fake, the decrypted resource will not be valid and we will do nothing with it.
-        String decrypted_resource = Cryptography.decrypt(message.data, user.publicKey);git
+        String decrypted_resource = Cryptography.decrypt(message.data, user.publicKey);
         Integer requested_resource = Integer.parseInt(decrypted_resource);
 
         for (Resource resource : this.resources) {
