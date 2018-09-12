@@ -193,9 +193,10 @@ class Legion {
         Resource resource = this.getResourceById(Integer.parseInt(resource_id));
         boolean i_have_resource = resource != null && resource.obtained;
         boolean i_want_resource_and_have_priority = resource != null && resource.timestamp < message.timestamp;
+        boolean same_timestamp_resolver = resource !=null && resource.timestamp == message.timestamp && this.my_id < user_to_respond;
 
         //If I already have the resource or I also want this resource and I have priority. I will deny the request.
-        if (i_have_resource || i_want_resource_and_have_priority) {
+        if (i_have_resource || i_want_resource_and_have_priority || same_timestamp_resolver) {
             status = Message.Code.REQUEST_DENIED;
             //Add this user to the list of people that I need to notify after releasing this resource.
             this.addUserToReleaseQueue(user_to_respond, Integer.parseInt(resource_id));
