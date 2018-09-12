@@ -161,6 +161,7 @@ class Legion {
             //Let's broadcast the dead of this peers.
             Message message = new Message(this.my_id, Message.BROADCAST_CODE, Message.Code.DEAD_PEER, user.id.toString());
             this.sendMessage(message);
+            this.removeKnownUserById(user.id);
         }
     }
 
