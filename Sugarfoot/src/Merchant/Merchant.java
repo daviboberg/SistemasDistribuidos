@@ -20,9 +20,10 @@ public class Merchant {
         server = (IMerchantServer)name_server.lookup("MerchantOperations");
     }
 
-    public void postResource(Resource resource) throws RemoteException {
-        server.postResource(resource);
+    public Resource postResource(Resource resource) throws RemoteException {
+        return server.postResource(resource);
     }
+
     public void deleteResource(Resource resource) throws RemoteException {
         server.deleteResource(resource);
     }

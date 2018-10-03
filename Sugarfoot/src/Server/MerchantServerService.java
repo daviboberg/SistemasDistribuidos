@@ -16,14 +16,22 @@ public class MerchantServerService extends UnicastRemoteObject implements IMerch
     }
 
     @Override
-    public void postResource(Resource resource) throws RemoteException {
+    public Resource postResource(Resource resource) throws RemoteException {
         this.resource_list.add(resource);
         System.out.println("Merchant posted this id: " + resource.getId());
+        if (resource.getId() == 0) {
+            resource.insert();
+            return resource;
+        }
+
+        resource.update();
+        return resource;
     }
 
     @Override
     public void deleteResource(Resource resource) throws RemoteException {
         System.out.println("Merchant deleted this id: " + resource.getId());
         this.resource_list.remove(resource);
+        resource.delete();
     }
 }
