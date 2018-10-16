@@ -42,7 +42,7 @@ public class Main {
                 airplane_fields = this.inputFields(this.airplane_message);
                 break;
             case "pacote":
-                hotel_fields = Arrays.asList(this.inputFields(this.hotel_message);
+                //hotel_fields = Arrays.asList(this.inputFields(this.hotel_message));
                 airplane_fields = this.inputFields(this.airplane_message);
                 break;
         }
