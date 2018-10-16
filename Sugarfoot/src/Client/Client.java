@@ -1,6 +1,7 @@
 package Client;
 
 import Comunication.InterfaceServer;
+import Resources.Resource;
 
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
@@ -11,7 +12,7 @@ public class Client {
 
     private ClientService service;
 
-    public Client(int port) throws RemoteException, NotBoundException {
+    Client(int port) throws RemoteException, NotBoundException {
         Registry name_server;
         name_server = LocateRegistry.getRegistry(port);
 
@@ -22,5 +23,13 @@ public class Client {
 
     public void call() throws RemoteException {
         service.callServer("Hello World!");
+    }
+
+    public void getInformation(Resource resource) throws RemoteException {
+
+    }
+
+    public void postOrder(Resource resource) throws RemoteException {
+
     }
 }
