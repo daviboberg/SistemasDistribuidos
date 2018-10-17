@@ -17,6 +17,7 @@ public class Hotel implements Resource {
     public String available_initial_date;
     public String available_end_date;
     public float price;
+    public int number_rooms;
 
     public Hotel(String location, String available_initial_date, String available_end_date) {
         this.location = location;
@@ -36,6 +37,13 @@ public class Hotel implements Resource {
 
     public Hotel() {}
 
+    public Hotel(String initial_date, String end_date, int capacity, float price) {
+        this.available_initial_date = initial_date;
+        this.available_end_date = end_date;
+        this.capacity = capacity;
+        this.price = price;
+    }
+
     @Override
     public boolean equals(Resource resource) {
         return id == resource.getId();
@@ -54,11 +62,10 @@ public class Hotel implements Resource {
             statement.setString(1, this.name);
             statement.setInt(2, this.room_number);
             statement.setString(3, this.location);
-            statement.setString(4, this.name);
-            statement.setInt(5, this.capacity);
-            statement.setString(6, this.available_initial_date);
-            statement.setString(7, this.available_end_date);
-            statement.setFloat(6, this.price);
+            statement.setInt(4, this.capacity);
+            statement.setString(5, this.available_initial_date);
+            statement.setString(6, this.available_end_date);
+            statement.setFloat(7, this.price);
             statement.execute();
             this.id = DatabaseConnection.getLastInsertedId();
         } catch (SQLException e) {
@@ -81,11 +88,17 @@ public class Hotel implements Resource {
 
     @Override
     public void update() {
-        String query = "UPDATE hotel SET `name` = ? WHERE id = ?";
+        String query = "UPDATE hotel SET `name` = ?, `room_number` = ?, `location` = ?, `capacity` = ?, `available_initial_date` = ?, `available_end_date` = ?, `price` = ?, WHERE id = ?";
         PreparedStatement statement = DatabaseConnection.getStatement(query);
         try {
             statement.setString(1, this.name);
-            statement.setInt(2, this.id);
+            statement.setInt(2, this.room_number);
+            statement.setString(3, this.location);
+            statement.setInt(4, this.capacity);
+            statement.setString(5, this.available_initial_date);
+            statement.setString(6, this.available_end_date);
+            statement.setFloat(7, this.price);
+            statement.setInt(8, this.id);
             statement.execute();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -122,12 +135,33 @@ public class Hotel implements Resource {
         return this.location;
     }
     public float getPrice() {
-        return (float)0.0;
+        return this.price;
     }
 
     @Override
     public List<Resource> find() throws SQLException {
-        return null;
+        String query = "SELECT * FROM hotel WHERE location = ? AND available_initial_date >= ? AND available_end_date <= ? AND capacity >= ? AND price <= ?";
+        PreparedStatement statement = DatabaseConnection.getStatement(query);
+        assert statement != null;
+        statement.setString(1, location);
+        statement.setString(2, available_initial_date);
+        statement.setString(3, available_end_date);
+        statement.setInt(4, capacity);
+        ResultSet result = statement.executeQuery();
+        List<Resource> hotels = new ArrayList<>();
+        while (result.next()) {
+            int id = result.getInt("id");
+            String room_number = result.getString("room_number");
+            String initial_date = result.getString("available_initial_date");
+            String end_date = result.getString("available_end_date");
+            int capacity = result.getInt("capacity");
+            float price = result.getFloat("price");
+            Hotel hotel = new Hotel(initial_date, end_date, capacity, price);
+            hotel.id = id;
+            hotels.add(hotel);
+        }
+
+        return hotels;
     }
 
 }

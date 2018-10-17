@@ -1,7 +1,9 @@
 package Client;
 
 import Comunication.InterfaceServer;
+import Resources.Interest;
 import Resources.Resource;
+import Server.ServerService;
 
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
@@ -12,21 +14,15 @@ import java.util.List;
 
 public class Client {
 
-    private ClientService service;
+    private ServerService service;
 
     Client(int port) throws RemoteException, NotBoundException {
         Registry name_server;
         name_server = LocateRegistry.getRegistry(port);
 
-        InterfaceServer server;
-        server = (InterfaceServer)name_server.lookup("echo");
-        server = (InterfaceServer) name_server.lookup("ClientOperations");
-        service = new ClientService(server);
+        service = (ServerService) name_server.lookup("ClientOperations");
     }
 
-    public void call() throws RemoteException {
-        service.callServer("Hello World!");
-    }
 
     public List<Resource> getInformation(Resource resource) throws RemoteException, SQLException {
         return service.getInformation(resource);
@@ -34,5 +30,9 @@ public class Client {
 
     public void postOrder(Resource resource) throws RemoteException {
         service.postOrder(resource);
+    }
+
+    public void postInterest(Interest interest) throws RemoteException {
+        service.registerInterest(interest);
     }
 }

@@ -1,10 +1,11 @@
 package Client;
 
+
 import Resources.Airplane;
 import Resources.Hotel;
 import Resources.PackageResource;
 import Resources.Resource;
-import org.omg.Messaging.SYNC_WITH_TRANSPORT;
+import Resources.*;
 
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
@@ -30,8 +31,9 @@ public class Main {
     private static List<String> hotel_label_fields = Arrays.asList("destino", "data_entrada", "data_saida",  "numero_quartos", "numero_pessoas");
     private static String hotel_message = "destino, data de entrada (dd/mm/aaaa), data de saida (dd/mm/aaaa), numero de quartos, numero de pessoas";
 
+    private static Client client;
     public static void  main(String[] args) throws RemoteException, NotBoundException, SQLException {
-        Client client = new Client(Integer.parseInt(args[0]));
+        client = new Client(Integer.parseInt(args[0]));
 
         printHeader();
 
@@ -39,33 +41,56 @@ public class Main {
             String request_type = Main.chooseOption(Main.request_type, Main.request_type_message);
             String package_type = Main.chooseOption(Main.package_type, Main.package_type_message);
 
-            Airplane airplane_going = null;
-            Airplane airplane_return = null;
-            Hotel hotel = null;
-            String[] hotel_fields;
-            String[] airplane_fields;
-            switch (package_type) {
-                case "hospedagem":
-                    hotel_fields = Main.inputFields(Main.hotel_message);
-                    hotel = Main.createHotel(hotel_fields);
-                    break;
-                case "passagem":
-                    airplane_fields = Main.inputFields(Main.airplane_message);
-                    airplane_going = Main.createAirplane(airplane_fields, false);
-                    if (airplane_fields[0].equals("ida_e_volta")) {
-                        airplane_return = Main.createAirplane(airplane_fields, true);
-                    }
-                    break;
-                case "pacote":
-                    hotel_fields = Main.inputFields(Main.hotel_message);
-                    hotel = Main.createHotel(hotel_fields);
-                    break;
-            }
 
-
-            processInputs(client, request_type, package_type, airplane_going, airplane_return, hotel);
+            Main.callAction(request_type, package_type);
         }
 
+    }
+
+    private static void callAction(String action, String type) throws RemoteException, SQLException {
+        if (type.equals("passagem")) {
+            boolean ida_e_volta = Main.idaEVolta();
+
+            if (!ida_e_volta) {
+                Main.consultaAirplaneIda(new Airplane());
+            }
+        }
+
+        if (action.equals("consulta") && type.equals("hotel")) {
+            Main.consultaHotel(new Hotel());
+        }
+    }
+
+    private static void consultaAirplaneIda(Airplane airplane) throws RemoteException, SQLException {
+        System.out.println("Digite origem:");
+        airplane.origin = scanner.nextLine();
+        System.out.println("Digite destino:");
+        airplane.destiny = scanner.nextLine();
+        System.out.println("Digite data:");
+        airplane.flight_date = scanner.nextLine();
+        System.out.println("Digite numero passagens:");
+        airplane = (Airplane) client.getInformation(airplane);
+        System.out.println("ID = " + airplane.getId());
+    }
+
+    private static void consultaHotel(Hotel hotel) throws RemoteException, SQLException {
+        System.out.println("Digite location:");
+        hotel.location = scanner.nextLine();
+        System.out.println("Digite data entrada:");
+        hotel.available_initial_date = scanner.nextLine();
+        System.out.println("Digite data saida:");
+        hotel.available_end_date = scanner.nextLine();
+        System.out.println("Digite numero de pessoas:");
+        hotel.capacity = Integer.parseInt(scanner.nextLine());
+        System.out.println("Digite numero de quartos:");
+        hotel.number_rooms = Integer.parseInt(scanner.nextLine());
+        hotel = (Hotel) client.getInformation(hotel);
+        System.out.println("ID = " + hotel.getId());
+    }
+
+    private static boolean idaEVolta() {
+        System.out.println("Ida ou Ida e volta? (ida=1, ida e volta=2)");
+        return Integer.parseInt(Main.scanner.nextLine()) == 2 ? true : false;
     }
 
     private static void processInputs(Client client, String request_type, String package_type, Airplane airplane_going, Airplane airplane_return, Hotel hotel) throws RemoteException, SQLException {
@@ -79,7 +104,7 @@ public class Main {
         } else if (package_type.equals("pacote")) {
             PackageResource type_package = new PackageResource();
             type_package.hotel = hotel;
-            type_package.aiplane_going = airplane_going;
+            type_package.airplane_going = airplane_going;
             type_package.airplane_return = airplane_return;
             resource = type_package;
         }
@@ -99,7 +124,7 @@ public class Main {
                 System.out.println("Passagens disponíveis: ");
                 for (Resource resource: result) {
                     Airplane airplane = (Airplane) resource;
-                    System.out.println("Passagem: ida, origem: " + airplane.origin + " destino: " + airplane.destiny + " data ida: " + airplane.flight_date + " assentos disponíveis: " + airplane.passengers);
+                    System.out.println("Passagem: ida, origem: " + airplane.origin + " destino: " + airplane.destiny + " data ida: " + airplane.flight_date + " assentos disponíveis: " + airplane.available_seats);
                 }
                 break;
             case "hotel":
@@ -110,17 +135,18 @@ public class Main {
         System.out.println();
     }
 
-    private static Airplane createAirplane(String[] airplane_fields, boolean is_return) {
-        Airplane airplane;
-        String date = is_return ? airplane_fields[4] : airplane_fields[3];
-        airplane = new Airplane(airplane_fields[0], airplane_fields[1], airplane_fields[2], date, Integer.parseInt(airplane_fields[5]));
-        return airplane;
+    private static String[] inputFields(String message) {
+        System.out.println("Informar:");
+        System.out.println(message);
+        String package_type = Main.scanner.nextLine();
+        return package_type.split(" ");
+
     }
 
-    private static Hotel createHotel(String[] hotel_fields) {
-        Hotel hotel;
-        hotel = new Hotel(hotel_fields[0], hotel_fields[1], hotel_fields[2]);
-        return hotel;
+    private static void printHeader() {
+        System.out.println("SugarFoot Tourism Agency");
+        System.out.println("Made by Bruno Clemente and Davi Boberg.");
+        System.out.println("");
     }
 
     private static String chooseOption(List<String> elements, String message) {
@@ -136,17 +162,30 @@ public class Main {
         }
     }
 
-    private static String[] inputFields(String message) {
-        System.out.println("Informar:");
-        System.out.println(message);
-        String package_type = Main.scanner.nextLine();
-        return package_type.split(" ");
+    private static void getInterest() throws RemoteException {
+        String read;
+        Interest interest = new Interest();
+        System.out.println("Você tem interesse em Passagens? [sim/não]");
+        read = scanner.nextLine();
+        if (read.equals("sim")) {
+            interest.references.add(Reference.AIRPLANE);
+        }
+        System.out.println("Você tem interesse em Hoteis? [sim/não]");
+        read = scanner.nextLine();
+        if (read.equals("sim")) {
+            interest.references.add(Reference.HOTEL);
+        }
+        System.out.println("Você tem interesse em Pacotes? [sim/não]");
+        read = scanner.nextLine();
+        if (read.equals("sim")) {
+            interest.references.add(Reference.PACKAGE);
+        }
+        System.out.println("Digite o destino:");
+        interest.destiny = scanner.nextLine();
+        System.out.println("Digite o preço máximo:");
+        interest.price = Float.parseFloat(scanner.nextLine());
+        interest.client = new ClientService();
 
-    }
-
-    private static void printHeader() {
-        System.out.println("SugarFoot Tourism Agency");
-        System.out.println("Made by Bruno Clemente and Davi Boberg.");
-        System.out.println("");
+        client.postInterest(interest);
     }
 }
