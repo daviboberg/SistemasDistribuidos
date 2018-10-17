@@ -5,7 +5,7 @@ import Server.DatabaseConnection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class Hotel implements Resource{
+public class Hotel implements Resource {
     public int id;
     public String name;
 
@@ -62,4 +62,12 @@ public class Hotel implements Resource{
     public Reference getReference() {
         return Reference.HOTEL;
     }
+
+    public String getDestiny(){
+        return "";
+    }
+    public float getPrice() {
+        return (float)0.0;
+    }
+
 }

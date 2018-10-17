@@ -87,4 +87,13 @@ public class Airplane implements Resource {
     public Reference getReference() {
         return Reference.AIRPLANE;
     }
+
+    public String getDestiny(){
+        return "";
+    }
+
+    public float getPrice() {
+        return (float)0.0;
+    }
+
 }

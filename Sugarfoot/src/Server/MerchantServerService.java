@@ -21,10 +21,12 @@ public class MerchantServerService extends UnicastRemoteObject implements IMerch
         System.out.println("Merchant posted this id: " + resource.getId());
         if (resource.getId() == 0) {
             resource.insert();
+            Observer.processEvents(resource);
             return resource;
         }
 
         resource.update();
+        Observer.processEvents(resource);
         return resource;
     }
 

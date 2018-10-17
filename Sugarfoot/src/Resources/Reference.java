@@ -1,6 +1,6 @@
 package Resources;
 
-public enum Reference {
+enum Reference {
     AIRPLANE,
     HOTEL,
     PACKAGE

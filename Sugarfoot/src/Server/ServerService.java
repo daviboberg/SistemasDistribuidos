@@ -9,8 +9,6 @@ import java.rmi.server.UnicastRemoteObject;
 
 public class ServerService extends UnicastRemoteObject implements InterfaceServer {
 
-    private Observer observer;
-
     ServerService() throws RemoteException {
         super();
     }
@@ -22,7 +20,7 @@ public class ServerService extends UnicastRemoteObject implements InterfaceServe
 
     @Override
     public void registerInterest(Interest interest) throws RemoteException {
-        observer.addInterest(interest);
+        Observer.addInterest(interest);
     }
 
 }

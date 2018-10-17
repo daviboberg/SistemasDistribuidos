@@ -15,10 +15,13 @@ public class Interest implements Serializable {
     public boolean inResource(Resource resource) {
         Reference resource_reference = resource.getReference();
         for (Reference reference : this.references) {
-            if (reference.equals(resource_reference))
-                return true;
+            if (!reference.equals(resource_reference))
+                continue;
 
+            if (!this.destiny.equals(resource.getDestiny()))
+                return false;
 
+            return (this.price <= resource.getPrice());
         }
 
         return false;

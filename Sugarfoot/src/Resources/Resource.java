@@ -12,4 +12,7 @@ public interface Resource extends Serializable {
 
     public void update();
     public Reference getReference();
+
+    public String getDestiny();
+    public float getPrice();
 }
