@@ -14,24 +14,27 @@ public class Airplane implements Resource {
     public String origin;
     public String destiny;
     public String flight_date;
-    public int passengers;
+    public int available_seats;
+    public float price;
 
-    public Airplane(String origin, String destiny, String flight_date, int passengers) {
+    public Airplane(String flight_number, String origin, String destiny, String flight_date, int available_seats, float price) {
+        this.flight_number = flight_number;
         this.origin = origin;
         this.destiny = destiny;
         this.flight_date = flight_date;
-        this.passengers = passengers;
+        this.available_seats = available_seats;
+        this.price = price;
     }
 
     public Airplane() {
     }
 
-    public Airplane(String flight_number, String origin, String destiny, String flight_date, int passengers) {
+    public Airplane(String flight_number, String origin, String destiny, String flight_date, int available_seats) {
         this.flight_number = flight_number;
         this.origin = origin;
         this.destiny = destiny;
         this.flight_date = flight_date;
-        this.passengers = passengers;
+        this.available_seats = available_seats;
     }
 
     @Override
@@ -46,13 +49,15 @@ public class Airplane implements Resource {
 
     @Override
     public void insert() {
-        String query = "INSERT INTO airplane (`flight_number`, `origin`, `destiny`, `flight_date`) VALUES (?, ?, ?, ?)";
+        String query = "INSERT INTO airplane (`flight_number`, `origin`, `destiny`, `flight_date`, `available_seats`, `price`) VALUES (?, ?, ?, ?, ?, ?)";
         PreparedStatement statement = DatabaseConnection.getStatement(query);
         try {
             statement.setString(1, this.flight_number);
             statement.setString(2, this.origin);
             statement.setString(3, this.destiny);
             statement.setString(4, this.flight_date);
+            statement.setInt(5, this.available_seats);
+            statement.setFloat(6, this.price);
             statement.execute();
             this.id = DatabaseConnection.getLastInsertedId();
         } catch (SQLException e) {
@@ -75,11 +80,16 @@ public class Airplane implements Resource {
 
     @Override
     public void update() {
-        String query = "UPDATE airplane SET `flight_number` = ? WHERE id = ?";
+        String query = "UPDATE airplane SET `flight_number` = ?, `origin` = ?, `destiny` = ?, `flight_date` = ?, `available_seats` = ?, `price` = ? WHERE id = ?";
         PreparedStatement statement = DatabaseConnection.getStatement(query);
         try {
             statement.setString(1, this.flight_number);
-            statement.setInt(2, this.id);
+            statement.setString(2, this.origin);
+            statement.setString(3, this.destiny);
+            statement.setString(4, this.flight_date);
+            statement.setInt(5, this.available_seats);
+            statement.setFloat(6, this.price);
+            statement.setInt(7, this.id);
             statement.execute();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -92,11 +102,11 @@ public class Airplane implements Resource {
     }
 
     public String getDestiny(){
-        return "";
+        return this.destiny;
     }
 
     public float getPrice() {
-        return (float)0.0;
+        return this.price;
     }
 
     @Override
@@ -107,7 +117,7 @@ public class Airplane implements Resource {
         statement.setString(1, origin);
         statement.setString(2, destiny);
         statement.setString(3, flight_date);
-        statement.setInt(4, passengers);
+        statement.setInt(4, available_seats);
         ResultSet result = statement.executeQuery();
         List<Resource> airplanes = new ArrayList<>();
         while (result.next()) {
@@ -117,7 +127,8 @@ public class Airplane implements Resource {
             destiny = result.getString("destiny");
             flight_date = result.getString("flight_date");
             int available_seats = result.getInt("available_seats");
-            Airplane newAirplane = new Airplane(flight_number, origin, destiny, flight_date, available_seats);
+            float price = result.getFloat("price");
+            Airplane newAirplane = new Airplane(flight_number, origin, destiny, flight_date, available_seats, price);
             newAirplane.id = id;
             airplanes.add(newAirplane);
         }
@@ -137,8 +148,9 @@ public class Airplane implements Resource {
             String origin = result.getString("origin");
             String destiny = result.getString("destiny");
             String flight_date = result.getString("flight_date");
-            int passengers = result.getInt("pasengers");
-            Airplane newAirplane = new Airplane(flight_number, origin, destiny, flight_date, passengers);
+            int available_seats = result.getInt("available_seats");
+            float price = result.getFloat("price");
+            Airplane newAirplane = new Airplane(flight_number, origin, destiny, flight_date, available_seats, price);
             airplanes.add(newAirplane);
         }
         return airplanes;

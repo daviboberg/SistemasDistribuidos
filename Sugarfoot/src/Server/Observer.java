@@ -12,7 +12,7 @@ import java.util.List;
 
 class Observer {
 
-    private static ArrayList<Interest> interests;
+    private static ArrayList<Interest> interests = new ArrayList<Interest>();
 
     static void addInterest(Interest interest) {
         List<Resource> resources = new ArrayList<Resource>();
