@@ -1,7 +1,9 @@
 package Server;
 
 import Resources.Interest;
+import Resources.Resource;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 public class Observer {
@@ -16,7 +18,13 @@ public class Observer {
         this.interests.add(interest);
     }
 
-    void processEvents() {
+    void processEvents(Resource resource) throws RemoteException {
+        for (Interest interest : this.interests) {
+            if(!interest.inResource(resource)) {
+                continue;
+            }
 
+            interest.client.echo("Teste");
+        }
     }
 }

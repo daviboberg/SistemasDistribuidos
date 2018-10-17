@@ -62,6 +62,7 @@ public class Airplane implements Resource {
         }
     }
 
+
     public List<AirplaneVO> findAll(String origin, String destiny, Date flight_date) throws SQLException {
         String query = "SELECT * FROM airplane WHERE origin = ? AND destiny = ? AND flight_date = ?";
         PreparedStatement statement = DatabaseConnection.getStatement(query);
@@ -80,5 +81,10 @@ public class Airplane implements Resource {
             airplanes.add(newAirplane);
         }
         return airplanes;
+    }
+
+    @Override
+    public Reference getReference() {
+        return Reference.AIRPLANE;
     }
 }
