@@ -5,8 +5,8 @@ import Server.DatabaseConnection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.ArrayList;
 
 public class Hotel implements Resource {
     public int id;
@@ -122,7 +122,12 @@ public class Hotel implements Resource {
         return this.location;
     }
     public float getPrice() {
-        return this.price;
+        return (float)0.0;
+    }
+
+    @Override
+    public List<Resource> find() throws SQLException {
+        return null;
     }
 
 }

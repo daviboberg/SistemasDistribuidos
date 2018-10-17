@@ -1,6 +1,8 @@
 package Resources;
 
 import java.io.Serializable;
+import java.sql.SQLException;
+import java.util.List;
 
 public interface Resource extends Serializable {
 
@@ -15,4 +17,6 @@ public interface Resource extends Serializable {
 
     public String getDestiny();
     public float getPrice();
+
+    public List<Resource> find() throws SQLException;
 }

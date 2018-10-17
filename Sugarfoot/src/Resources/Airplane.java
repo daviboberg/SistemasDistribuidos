@@ -2,7 +2,6 @@ package Resources;
 
 import Server.DatabaseConnection;
 
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,8 +16,7 @@ public class Airplane implements Resource {
     public String flight_date;
     public int passengers;
 
-    public Airplane(String flight_number, String origin, String destiny, String flight_date, int passengers) {
-        this.flight_number = flight_number;
+    public Airplane(String origin, String destiny, String flight_date, int passengers) {
         this.origin = origin;
         this.destiny = destiny;
         this.flight_date = flight_date;
@@ -26,6 +24,14 @@ public class Airplane implements Resource {
     }
 
     public Airplane() {
+    }
+
+    public Airplane(String flight_number, String origin, String destiny, String flight_date, int passengers) {
+        this.flight_number = flight_number;
+        this.origin = origin;
+        this.destiny = destiny;
+        this.flight_date = flight_date;
+        this.passengers = passengers;
     }
 
     @Override
@@ -80,7 +86,21 @@ public class Airplane implements Resource {
         }
     }
 
-    public List<Airplane> findAvailable() throws SQLException {
+    @Override
+    public Reference getReference() {
+        return Reference.AIRPLANE;
+    }
+
+    public String getDestiny(){
+        return "";
+    }
+
+    public float getPrice() {
+        return (float)0.0;
+    }
+
+    @Override
+    public List<Resource> find() throws SQLException {
         String query = "SELECT * FROM airplane WHERE origin = ? AND destiny = ? AND flight_date = ? AND available_seats >= ?";
         PreparedStatement statement = DatabaseConnection.getStatement(query);
         assert statement != null;
@@ -89,16 +109,19 @@ public class Airplane implements Resource {
         statement.setString(3, flight_date);
         statement.setInt(4, passengers);
         ResultSet result = statement.executeQuery();
-        List<Airplane> airplanes = new ArrayList<>();
+        List<Resource> airplanes = new ArrayList<>();
         while (result.next()) {
             int id = result.getInt("id");
             String flight_number = result.getString("flight_number");
             origin = result.getString("origin");
             destiny = result.getString("destiny");
             flight_date = result.getString("flight_date");
-            Airplane newAirplane = new Airplane(flight_number, origin, destiny, flight_date, passengers);
+            int available_seats = result.getInt("available_seats");
+            Airplane newAirplane = new Airplane(flight_number, origin, destiny, flight_date, available_seats);
+            newAirplane.id = id;
             airplanes.add(newAirplane);
         }
+
         return airplanes;
     }
 
@@ -119,19 +142,6 @@ public class Airplane implements Resource {
             airplanes.add(newAirplane);
         }
         return airplanes;
-    }
-
-    @Override
-    public Reference getReference() {
-        return Reference.AIRPLANE;
-    }
-
-    public String getDestiny(){
-        return "";
-    }
-
-    public float getPrice() {
-        return (float)0.0;
     }
 
 }

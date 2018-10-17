@@ -7,6 +7,8 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import java.sql.SQLException;
+import java.util.List;
 
 public class Client {
 
@@ -18,6 +20,7 @@ public class Client {
 
         InterfaceServer server;
         server = (InterfaceServer)name_server.lookup("echo");
+        server = (InterfaceServer) name_server.lookup("ClientOperations");
         service = new ClientService(server);
     }
 
@@ -25,11 +28,11 @@ public class Client {
         service.callServer("Hello World!");
     }
 
-    public void getInformation(Resource resource) throws RemoteException {
-
+    public List<Resource> getInformation(Resource resource) throws RemoteException, SQLException {
+        return service.getInformation(resource);
     }
 
     public void postOrder(Resource resource) throws RemoteException {
-
+        service.postOrder(resource);
     }
 }
