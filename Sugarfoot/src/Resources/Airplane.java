@@ -2,8 +2,12 @@ package Resources;
 
 import Server.DatabaseConnection;
 
+import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Airplane implements Resource {
     public int id;
@@ -56,5 +60,25 @@ public class Airplane implements Resource {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public List<AirplaneVO> findAll(String origin, String destiny, Date flight_date) throws SQLException {
+        String query = "SELECT * FROM airplane WHERE origin = ? AND destiny = ? AND flight_date = ?";
+        PreparedStatement statement = DatabaseConnection.getStatement(query);
+        statement.setString(1, origin);
+        statement.setString(2, destiny);
+        statement.setDate(3, flight_date);
+        ResultSet result = statement.executeQuery();
+        List<AirplaneVO> airplanes = new ArrayList<>();
+        while (result.next()) {
+            int id = result.getInt("id");
+            String flight_number = result.getString("flight_number");
+            origin = result.getString("origin");
+            destiny = result.getString("destiny");
+            flight_date = result.getDate("flight_date");
+            AirplaneVO newAirplane = new AirplaneVO(id, flight_number, origin, destiny, flight_date);
+            airplanes.add(newAirplane);
+        }
+        return airplanes;
     }
 }
