@@ -16,8 +16,7 @@ public class Airplane implements Resource {
     public String flight_date;
     public int passengers;
 
-    public Airplane(String flight_number, String origin, String destiny, String flight_date, int passengers) {
-        this.flight_number = flight_number;
+    public Airplane(String origin, String destiny, String flight_date, int passengers) {
         this.origin = origin;
         this.destiny = destiny;
         this.flight_date = flight_date;
@@ -25,6 +24,14 @@ public class Airplane implements Resource {
     }
 
     public Airplane() {
+    }
+
+    public Airplane(String flight_number, String origin, String destiny, String flight_date, int passengers) {
+        this.flight_number = flight_number;
+        this.origin = origin;
+        this.destiny = destiny;
+        this.flight_date = flight_date;
+        this.passengers = passengers;
     }
 
     @Override
@@ -94,7 +101,7 @@ public class Airplane implements Resource {
 
     @Override
     public List<Resource> find() throws SQLException {
-                String query = "SELECT * FROM airplane WHERE origin = ? AND destiny = ? AND flight_date = ? AND available_seats >= ?";
+        String query = "SELECT * FROM airplane WHERE origin = ? AND destiny = ? AND flight_date = ? AND available_seats >= ?";
         PreparedStatement statement = DatabaseConnection.getStatement(query);
         assert statement != null;
         statement.setString(1, origin);
@@ -109,10 +116,12 @@ public class Airplane implements Resource {
             origin = result.getString("origin");
             destiny = result.getString("destiny");
             flight_date = result.getString("flight_date");
-            Airplane newAirplane = new Airplane(flight_number, origin, destiny, flight_date, passengers);
+            int available_seats = result.getInt("available_seats");
+            Airplane newAirplane = new Airplane(flight_number, origin, destiny, flight_date, available_seats);
             newAirplane.id = id;
             airplanes.add(newAirplane);
         }
+
         return airplanes;
     }
 

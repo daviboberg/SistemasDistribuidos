@@ -2,6 +2,7 @@ package Client;
 
 import Resources.Airplane;
 import Resources.Hotel;
+import Resources.PackageResource;
 import Resources.Resource;
 import org.omg.Messaging.SYNC_WITH_TRANSPORT;
 
@@ -38,7 +39,7 @@ public class Main {
             String request_type = Main.chooseOption(Main.request_type, Main.request_type_message);
             String package_type = Main.chooseOption(Main.package_type, Main.package_type_message);
 
-            Airplane airplane_ida = null;
+            Airplane airplane_going = null;
             Airplane airplane_return = null;
             Hotel hotel = null;
             String[] hotel_fields;
@@ -50,7 +51,7 @@ public class Main {
                     break;
                 case "passagem":
                     airplane_fields = Main.inputFields(Main.airplane_message);
-                    airplane_ida = Main.createAirplane(airplane_fields, false);
+                    airplane_going = Main.createAirplane(airplane_fields, false);
                     if (airplane_fields[0].equals("ida_e_volta")) {
                         airplane_return = Main.createAirplane(airplane_fields, true);
                     }
@@ -62,34 +63,56 @@ public class Main {
             }
 
 
-//            Main.request(request_type, package_type, airplane_ida, airplane_return, hotel);
-            List<Resource> available_airplanes = client.getInformation(airplane_ida);
-            System.out.println(available_airplanes);
+            processInputs(client, request_type, package_type, airplane_going, airplane_return, hotel);
         }
 
     }
 
-//    private static void request(String request_type, String package_type, Airplane airplane_ida, Airplane airplane_return, Hotel hotel) {
-//        if (request_type.equals("consulta")) {
-//            Main.showInformation(package_type, airplane_ida, airplane_return, hotel);
-//        } else if(request_type.equals("compra")) {
-//            Main.postOrder(package_type, airplane_ida, airplane_ida, hotel);
-//        }
-//    }
-//
-//    private static void postOrder(String package_type, Airplane airplane_ida, Airplane airplane_return, Hotel hotel) {
-//        if (package_type.equals("passagem")) {
-//            Main.postOrderAviao(airplane_ida, airplane_return);
-//        }
-//    }
-//
-//    private static void showInformation(String package_type, Airplane airplane_ida, Airplane airplane_return, Hotel hotel) {
-//
-//    }
+    private static void processInputs(Client client, String request_type, String package_type, Airplane airplane_going, Airplane airplane_return, Hotel hotel) throws RemoteException, SQLException {
+        Resource resource = null;
+        if (package_type.equals("passagem")) {
+            resource = airplane_going;
+
+        } else if (package_type.equals("hospedagem")) {
+            resource = hotel;
+
+        } else if (package_type.equals("pacote")) {
+            PackageResource type_package = new PackageResource();
+            type_package.hotel = hotel;
+            type_package.aiplane_going = airplane_going;
+            type_package.airplane_return = airplane_return;
+            resource = type_package;
+        }
+
+        List<Resource> result = null;
+        if (request_type.equals("consulta")) {
+            result = client.getInformation(resource);
+            Main.showInformation(result, package_type);
+        } else if (request_type.equals("compra")) {
+            client.postOrder(resource);
+        }
+    }
+
+    private static void showInformation(List<Resource> result, String package_type) {
+        switch (package_type) {
+            case "passagem":
+                System.out.println("Passagens disponíveis: ");
+                for (Resource resource: result) {
+                    Airplane airplane = (Airplane) resource;
+                    System.out.println("Passagem: ida, origem: " + airplane.origin + " destino: " + airplane.destiny + " data ida: " + airplane.flight_date + " assentos disponíveis: " + airplane.passengers);
+                }
+                break;
+            case "hotel":
+                break;
+            case "pacote":
+                break;
+        }
+        System.out.println();
+    }
 
     private static Airplane createAirplane(String[] airplane_fields, boolean is_return) {
         Airplane airplane;
-        String date = is_return ? airplane_fields[3] : airplane_fields[4];
+        String date = is_return ? airplane_fields[4] : airplane_fields[3];
         airplane = new Airplane(airplane_fields[0], airplane_fields[1], airplane_fields[2], date, Integer.parseInt(airplane_fields[5]));
         return airplane;
     }
