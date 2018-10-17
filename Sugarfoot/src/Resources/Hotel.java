@@ -62,11 +62,10 @@ public class Hotel implements Resource {
             statement.setString(1, this.name);
             statement.setInt(2, this.room_number);
             statement.setString(3, this.location);
-            statement.setString(4, this.name);
-            statement.setInt(5, this.capacity);
-            statement.setString(6, this.available_initial_date);
-            statement.setString(7, this.available_end_date);
-            statement.setFloat(6, this.price);
+            statement.setInt(4, this.capacity);
+            statement.setString(5, this.available_initial_date);
+            statement.setString(6, this.available_end_date);
+            statement.setFloat(7, this.price);
             statement.execute();
             this.id = DatabaseConnection.getLastInsertedId();
         } catch (SQLException e) {
@@ -89,11 +88,17 @@ public class Hotel implements Resource {
 
     @Override
     public void update() {
-        String query = "UPDATE hotel SET `name` = ? WHERE id = ?";
+        String query = "UPDATE hotel SET `name` = ?, `room_number` = ?, `location` = ?, `capacity` = ?, `available_initial_date` = ?, `available_end_date` = ?, `price` = ?, WHERE id = ?";
         PreparedStatement statement = DatabaseConnection.getStatement(query);
         try {
             statement.setString(1, this.name);
-            statement.setInt(2, this.id);
+            statement.setInt(2, this.room_number);
+            statement.setString(3, this.location);
+            statement.setInt(4, this.capacity);
+            statement.setString(5, this.available_initial_date);
+            statement.setString(6, this.available_end_date);
+            statement.setFloat(7, this.price);
+            statement.setInt(8, this.id);
             statement.execute();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -130,7 +135,7 @@ public class Hotel implements Resource {
         return this.location;
     }
     public float getPrice() {
-        return (float)0.0;
+        return this.price;
     }
 
     @Override

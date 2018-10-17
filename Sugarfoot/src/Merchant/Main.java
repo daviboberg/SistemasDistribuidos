@@ -2,6 +2,7 @@ package Merchant;
 
 import Resources.Airplane;
 import Resources.Hotel;
+import Resources.PackageResource;
 
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
@@ -38,7 +39,7 @@ public class Main {
         }
 
         if (action.equals("inserir") && type.equals("pacote")) {
-            //Main.postPackage(new Package());
+            Main.postPackage(new PackageResource());
             return;
         }
 
@@ -57,9 +58,9 @@ public class Main {
         }
 
         if (action.equals("atualizar") && type.equals("pacote")) {
-//            Package package = new Package();
-//            package.id = getId();
-//            Main.postPackage(package);
+            PackageResource packageResource = new PackageResource();
+            packageResource.id = getId();
+            Main.postPackage(packageResource);
             return;
         }
 
@@ -78,9 +79,9 @@ public class Main {
         }
 
         if (action.equals("deletar") && type.equals("pacote")) {
-//            Package package = new Package();
-//            package.id = getId();
-//            merchant.deleteResource(package)
+            PackageResource packageResource = new PackageResource();
+            packageResource.id = getId();
+            merchant.deleteResource(packageResource);
             return;
         }
     }
@@ -99,6 +100,10 @@ public class Main {
         airplane.destiny = scanner.nextLine();
         System.out.println("Digite o dia:");
         airplane.flight_date = scanner.nextLine();
+        System.out.println("Digite o preço:");
+        airplane.price = Float.parseFloat(scanner.nextLine());
+        System.out.println("Digite o numero de lugares:");
+        airplane.available_seats = Integer.parseInt(scanner.nextLine());
         airplane = (Airplane) merchant.postResource(airplane);
         System.out.println("ID = " + airplane.getId());
     }
@@ -113,13 +118,27 @@ public class Main {
         System.out.println("Digite a capcidade de cada quarto:");
         hotel.capacity = Integer.parseInt(scanner.nextLine());
         System.out.println("Digite o preço:");
-        hotel.price = Integer.parseInt(scanner.nextLine());
+        hotel.price = Float.parseFloat(scanner.nextLine());
         System.out.println("Digite a data inicial:");
         hotel.available_initial_date = scanner.nextLine();
         System.out.println("Digite a data final:");
         hotel.available_end_date = scanner.nextLine();
         hotel = (Hotel) merchant.postResource(hotel);
         System.out.println("ID = " + hotel.getId());
+    }
+
+    private static void postPackage(PackageResource packageResource) throws RemoteException {
+        System.out.println("Digite o id do hotel:");
+        packageResource.hotel = new Hotel();
+        packageResource.hotel.id = Integer.parseInt(scanner.nextLine());
+        System.out.println("Digite o id do avião de ida:");
+        packageResource.airplane_going = new Airplane();
+        packageResource.airplane_going.id = Integer.parseInt(scanner.nextLine());
+        System.out.println("Digite o id do avião de volta:");
+        packageResource.airplane_return = new Airplane();
+        packageResource.airplane_return.id = Integer.parseInt(scanner.nextLine());
+        packageResource = (PackageResource) merchant.postResource(packageResource);
+        System.out.println("ID = " + packageResource.getId());
     }
 
     private static String chooseType() {

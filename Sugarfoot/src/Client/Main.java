@@ -1,9 +1,11 @@
 package Client;
 
+
 import Resources.Airplane;
 import Resources.Hotel;
 import Resources.PackageResource;
 import Resources.Resource;
+import Resources.*;
 
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
@@ -102,7 +104,7 @@ public class Main {
         } else if (package_type.equals("pacote")) {
             PackageResource type_package = new PackageResource();
             type_package.hotel = hotel;
-            type_package.aiplane_going = airplane_going;
+            type_package.airplane_going = airplane_going;
             type_package.airplane_return = airplane_return;
             resource = type_package;
         }
@@ -122,7 +124,7 @@ public class Main {
                 System.out.println("Passagens disponíveis: ");
                 for (Resource resource: result) {
                     Airplane airplane = (Airplane) resource;
-                    System.out.println("Passagem: ida, origem: " + airplane.origin + " destino: " + airplane.destiny + " data ida: " + airplane.flight_date + " assentos disponíveis: " + airplane.passengers);
+                    System.out.println("Passagem: ida, origem: " + airplane.origin + " destino: " + airplane.destiny + " data ida: " + airplane.flight_date + " assentos disponíveis: " + airplane.available_seats);
                 }
                 break;
             case "hotel":
@@ -158,5 +160,32 @@ public class Main {
                 System.out.println("Opção invalida");
             }
         }
+    }
+
+    private static void getInterest() throws RemoteException {
+        String read;
+        Interest interest = new Interest();
+        System.out.println("Você tem interesse em Passagens? [sim/não]");
+        read = scanner.nextLine();
+        if (read.equals("sim")) {
+            interest.references.add(Reference.AIRPLANE);
+        }
+        System.out.println("Você tem interesse em Hoteis? [sim/não]");
+        read = scanner.nextLine();
+        if (read.equals("sim")) {
+            interest.references.add(Reference.HOTEL);
+        }
+        System.out.println("Você tem interesse em Pacotes? [sim/não]");
+        read = scanner.nextLine();
+        if (read.equals("sim")) {
+            interest.references.add(Reference.PACKAGE);
+        }
+        System.out.println("Digite o destino:");
+        interest.destiny = scanner.nextLine();
+        System.out.println("Digite o preço máximo:");
+        interest.price = Float.parseFloat(scanner.nextLine());
+        interest.client = new ClientService();
+
+        client.postInterest(interest);
     }
 }
