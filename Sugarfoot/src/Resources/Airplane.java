@@ -102,6 +102,25 @@ public class Airplane implements Resource {
         return airplanes;
     }
 
+    public static List<Airplane> getAll() throws SQLException {
+        String query = "SELECT * FROM airplane";
+        PreparedStatement statement = DatabaseConnection.getStatement(query);
+        assert statement != null;
+        ResultSet result = statement.executeQuery();
+        List<Airplane> airplanes = new ArrayList<>();
+        while (result.next()) {
+            int id = result.getInt("id");
+            String flight_number = result.getString("flight_number");
+            String origin = result.getString("origin");
+            String destiny = result.getString("destiny");
+            String flight_date = result.getString("flight_date");
+            int passengers = result.getInt("pasengers");
+            Airplane newAirplane = new Airplane(flight_number, origin, destiny, flight_date, passengers);
+            airplanes.add(newAirplane);
+        }
+        return airplanes;
+    }
+
     @Override
     public Reference getReference() {
         return Reference.AIRPLANE;

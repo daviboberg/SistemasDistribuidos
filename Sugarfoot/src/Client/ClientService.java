@@ -30,6 +30,11 @@ public class ClientService extends UnicastRemoteObject implements InterfaceClien
 
     }
 
+    @Override
+    public void postAnnounce(String string) throws RemoteException {
+        System.out.println(string);
+    }
+
     public void callServer(String str) throws RemoteException {
         server.call(str, this);
     }

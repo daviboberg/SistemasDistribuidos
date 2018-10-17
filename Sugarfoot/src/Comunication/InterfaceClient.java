@@ -12,4 +12,6 @@ public interface InterfaceClient extends Remote {
     void getInformation(Resource resource) throws RemoteException;
 
     void postOrder(Resource resource) throws RemoteException;
+
+    void postAnnounce(String string) throws RemoteException;
 }

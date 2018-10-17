@@ -3,6 +3,7 @@ package Resources;
 import Comunication.InterfaceClient;
 
 import java.io.Serializable;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 public class Interest implements Serializable {
@@ -12,19 +13,29 @@ public class Interest implements Serializable {
     public Float price;
     public InterfaceClient client;
 
-    public boolean inResource(Resource resource) {
+    public void processForResource(Resource resource) throws RemoteException {
         Reference resource_reference = resource.getReference();
         for (Reference reference : this.references) {
             if (!reference.equals(resource_reference))
                 continue;
 
             if (!this.destiny.equals(resource.getDestiny()))
-                return false;
+                return;
 
-            return (this.price <= resource.getPrice());
+            if (this.price > resource.getPrice())
+                return;
+
+            client.postAnnounce(this.getAnnounce(resource));
         }
 
-        return false;
+        return ;
+    }
+
+    private String getAnnounce(Resource resource) {
+        Reference reference = resource.getReference();
+        String type = (reference == Reference.AIRPLANE) ? "Voo" :
+                      (reference == Reference.HOTEL) ? "Hotel" : "Pacote";
+        return "Um novo " + type + " foi criado com o ID:" + resource.getId();
     }
 
 }

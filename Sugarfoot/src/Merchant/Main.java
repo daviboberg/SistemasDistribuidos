@@ -28,61 +28,98 @@ public class Main {
 
     private static void callAction(String action, String type) throws RemoteException {
         if (action.equals("inserir") && type.equals("hotel")) {
-            Main.insertHotel();
+            Main.postHotel(new Hotel());
             return;
         }
 
         if (action.equals("inserir") && type.equals("voo")) {
-            Main.insertVoo();
+            Main.postAirplane(new Airplane());
             return;
         }
 
         if (action.equals("inserir") && type.equals("pacote")) {
-            //Main.insertPacote();
+            //Main.postPackage(new Package());
             return;
         }
 
         if (action.equals("atualizar") && type.equals("hotel")) {
-            Main.insertHotel();
+            Hotel hotel = new Hotel();
+            hotel.id = getId();
+            Main.postHotel(hotel);
             return;
         }
 
         if (action.equals("atualizar") && type.equals("voo")) {
-            Main.insertHotel();
+            Airplane airplane = new Airplane();
+            airplane.id = getId();
+            Main.postAirplane(airplane);
             return;
         }
 
         if (action.equals("atualizar") && type.equals("pacote")) {
-            Main.insertHotel();
+//            Package package = new Package();
+//            package.id = getId();
+//            Main.postPackage(package);
             return;
         }
 
         if (action.equals("deletar") && type.equals("hotel")) {
-            Main.insertHotel();
+            Hotel hotel = new Hotel();
+            hotel.id = getId();
+            merchant.deleteResource(hotel);
             return;
         }
 
         if (action.equals("deletar") && type.equals("voo")) {
-            Main.insertHotel();
+            Airplane airplane = new Airplane();
+            airplane.id = getId();
+            merchant.deleteResource(airplane);
             return;
         }
 
         if (action.equals("deletar") && type.equals("pacote")) {
-            Main.insertHotel();
+//            Package package = new Package();
+//            package.id = getId();
+//            merchant.deleteResource(package)
             return;
         }
     }
 
-    private static void insertVoo() throws RemoteException {
-        Airplane airplane = new Airplane();
-        //TODO
-        merchant.postResource(airplane);
+    private static int getId() {
+        System.out.println("Digite o ID:");
+        return Integer.parseInt(scanner.nextLine());
     }
 
-    private static void insertHotel() throws RemoteException {
-        Hotel hotel = new Hotel();
-        //TODO
-        merchant.postResource(hotel);
+    private static void postAirplane(Airplane airplane) throws RemoteException {
+        System.out.println("Digite o número do voo:");
+        airplane.flight_number = scanner.nextLine();
+        System.out.println("Digite a origem:");
+        airplane.origin = scanner.nextLine();
+        System.out.println("Digite o destino:");
+        airplane.destiny = scanner.nextLine();
+        System.out.println("Digite o dia:");
+        airplane.flight_date = scanner.nextLine();
+        airplane = (Airplane) merchant.postResource(airplane);
+        System.out.println("ID = " + airplane.getId());
+    }
+
+    private static void postHotel(Hotel hotel) throws RemoteException {
+        System.out.println("Digite o nome do hotel:");
+        hotel.name = scanner.nextLine();
+        System.out.println("Digite a localidade:");
+        hotel.location = scanner.nextLine();
+        System.out.println("Digite o número de quartos:");
+        hotel.room_number = Integer.parseInt(scanner.nextLine());
+        System.out.println("Digite a capcidade de cada quarto:");
+        hotel.capacity = Integer.parseInt(scanner.nextLine());
+        System.out.println("Digite o preço:");
+        hotel.price = Integer.parseInt(scanner.nextLine());
+        System.out.println("Digite a data inicial:");
+        hotel.available_initial_date = scanner.nextLine();
+        System.out.println("Digite a data final:");
+        hotel.available_end_date = scanner.nextLine();
+        hotel = (Hotel) merchant.postResource(hotel);
+        System.out.println("ID = " + hotel.getId());
     }
 
     private static String chooseType() {

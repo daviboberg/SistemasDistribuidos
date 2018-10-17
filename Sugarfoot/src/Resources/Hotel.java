@@ -3,7 +3,10 @@ package Resources;
 import Server.DatabaseConnection;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Hotel implements Resource {
     public int id;
@@ -20,6 +23,18 @@ public class Hotel implements Resource {
         this.available_initial_date = available_initial_date;
         this.available_end_date = available_end_date;
     }
+
+    public Hotel(String name, int room_number, String location, int capacity, String available_initial_date, String available_end_date, float price) {
+        this.name = name;
+        this.room_number = room_number;
+        this.location = location;
+        this.capacity = capacity;
+        this.available_initial_date = available_initial_date;
+        this.available_end_date = available_end_date;
+        this.price = price;
+    }
+
+    public Hotel() {}
 
     @Override
     public boolean equals(Resource resource) {
@@ -77,16 +92,37 @@ public class Hotel implements Resource {
         }
     }
 
+    public static List<Hotel> getAll() throws SQLException {
+        String query = "SELECT * FROM hotel";
+        PreparedStatement statement = DatabaseConnection.getStatement(query);
+        assert statement != null;
+        ResultSet result = statement.executeQuery();
+        List<Hotel> hotels = new ArrayList<>();
+        while (result.next()) {
+            int id = result.getInt("id");
+            String name = result.getString("name");
+            int room_number = result.getInt("room_number");
+            String location = result.getString("location");
+            int capacity = result.getInt("capacity");
+            String available_initial_date = result.getString("available_initial_date");
+            String available_end_date = result.getString("available_end_date");
+            float price = result.getFloat("price");
+            Hotel newHotel = new Hotel(name, room_number, location, capacity, available_initial_date, available_end_date, price);
+            hotels.add(newHotel);
+        }
+        return hotels;
+    }
+
     @Override
     public Reference getReference() {
         return Reference.HOTEL;
     }
 
     public String getDestiny(){
-        return "";
+        return this.location;
     }
     public float getPrice() {
-        return (float)0.0;
+        return this.price;
     }
 
 }
