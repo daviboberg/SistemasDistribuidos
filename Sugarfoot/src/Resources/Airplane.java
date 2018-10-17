@@ -2,7 +2,6 @@ package Resources;
 
 import Server.DatabaseConnection;
 
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -80,8 +79,22 @@ public class Airplane implements Resource {
         }
     }
 
-    public List<Airplane> findAvailable() throws SQLException {
-        String query = "SELECT * FROM airplane WHERE origin = ? AND destiny = ? AND flight_date = ? AND available_seats >= ?";
+    @Override
+    public Reference getReference() {
+        return Reference.AIRPLANE;
+    }
+
+    public String getDestiny(){
+        return "";
+    }
+
+    public float getPrice() {
+        return (float)0.0;
+    }
+
+    @Override
+    public List<Resource> find() throws SQLException {
+                String query = "SELECT * FROM airplane WHERE origin = ? AND destiny = ? AND flight_date = ? AND available_seats >= ?";
         PreparedStatement statement = DatabaseConnection.getStatement(query);
         assert statement != null;
         statement.setString(1, origin);
@@ -89,7 +102,7 @@ public class Airplane implements Resource {
         statement.setString(3, flight_date);
         statement.setInt(4, passengers);
         ResultSet result = statement.executeQuery();
-        List<Airplane> airplanes = new ArrayList<>();
+        List<Resource> airplanes = new ArrayList<>();
         while (result.next()) {
             int id = result.getInt("id");
             String flight_number = result.getString("flight_number");
@@ -97,6 +110,7 @@ public class Airplane implements Resource {
             destiny = result.getString("destiny");
             flight_date = result.getString("flight_date");
             Airplane newAirplane = new Airplane(flight_number, origin, destiny, flight_date, passengers);
+            newAirplane.id = id;
             airplanes.add(newAirplane);
         }
         return airplanes;
@@ -119,19 +133,6 @@ public class Airplane implements Resource {
             airplanes.add(newAirplane);
         }
         return airplanes;
-    }
-
-    @Override
-    public Reference getReference() {
-        return Reference.AIRPLANE;
-    }
-
-    public String getDestiny(){
-        return "";
-    }
-
-    public float getPrice() {
-        return (float)0.0;
     }
 
 }

@@ -1,5 +1,6 @@
 package Server;
 
+import Client.ClientService;
 import Resources.Resource;
 
 import java.rmi.AlreadyBoundException;
@@ -29,5 +30,6 @@ public class Server {
     void bindServices() throws AlreadyBoundException, RemoteException {
         name_server.bind("echo", this.service);
         name_server.bind("MerchantOperations", this.merchant_server_service);
+        name_server.bind("ClientOperations", this.service);
     }
 }

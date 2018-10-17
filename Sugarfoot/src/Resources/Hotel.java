@@ -125,4 +125,9 @@ public class Hotel implements Resource {
         return this.price;
     }
 
+    @Override
+    public List<Resource> find() throws SQLException {
+        return null;
+    }
+
 }
