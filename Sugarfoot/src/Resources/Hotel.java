@@ -17,6 +17,7 @@ public class Hotel implements Resource {
     public String available_initial_date;
     public String available_end_date;
     public float price;
+    public int number_rooms;
 
     public Hotel(String location, String available_initial_date, String available_end_date) {
         this.location = location;
@@ -35,6 +36,13 @@ public class Hotel implements Resource {
     }
 
     public Hotel() {}
+
+    public Hotel(String initial_date, String end_date, int capacity, float price) {
+        this.available_initial_date = initial_date;
+        this.available_end_date = end_date;
+        this.capacity = capacity;
+        this.price = price;
+    }
 
     @Override
     public boolean equals(Resource resource) {
@@ -127,7 +135,28 @@ public class Hotel implements Resource {
 
     @Override
     public List<Resource> find() throws SQLException {
-        return null;
+        String query = "SELECT * FROM hotel WHERE location = ? AND available_initial_date >= ? AND available_end_date <= ? AND capacity >= ? AND price <= ?";
+        PreparedStatement statement = DatabaseConnection.getStatement(query);
+        assert statement != null;
+        statement.setString(1, location);
+        statement.setString(2, available_initial_date);
+        statement.setString(3, available_end_date);
+        statement.setInt(4, capacity);
+        ResultSet result = statement.executeQuery();
+        List<Resource> hotels = new ArrayList<>();
+        while (result.next()) {
+            int id = result.getInt("id");
+            String room_number = result.getString("room_number");
+            String initial_date = result.getString("available_initial_date");
+            String end_date = result.getString("available_end_date");
+            int capacity = result.getInt("capacity");
+            float price = result.getFloat("price");
+            Hotel hotel = new Hotel(initial_date, end_date, capacity, price);
+            hotel.id = id;
+            hotels.add(hotel);
+        }
+
+        return hotels;
     }
 
 }
