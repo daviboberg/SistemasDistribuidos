@@ -17,7 +17,10 @@ public class Interest implements Serializable {
         for (Reference reference : this.references) {
             if (reference.equals(resource_reference))
                 return true;
+
+
         }
+
         return false;
     }
 

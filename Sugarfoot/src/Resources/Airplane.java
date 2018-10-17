@@ -81,6 +81,7 @@ public class Airplane implements Resource {
             airplanes.add(newAirplane);
         }
         return airplanes;
+    }
 
     @Override
     public Reference getReference() {
