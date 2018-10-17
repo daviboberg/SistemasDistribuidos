@@ -1,22 +1,26 @@
 package Server;
 
 import Resources.Interest;
+import Resources.Resource;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-public class Observer {
+class Observer {
 
-    private ArrayList<Interest> interests;
+    private static ArrayList<Interest> interests;
 
-    Observer() {
-        this.interests = new ArrayList();
+    static void addInterest(Interest interest) {
+        interests.add(interest);
     }
 
-    public void addInterest(Interest interest) {
-        this.interests.add(interest);
-    }
+    static void processEvents(Resource resource) throws RemoteException {
+        for (Interest interest : interests) {
+            if(!interest.inResource(resource)) {
+                continue;
+            }
 
-    void processEvents() {
-
+            interest.client.echo("Teste");
+        }
     }
 }

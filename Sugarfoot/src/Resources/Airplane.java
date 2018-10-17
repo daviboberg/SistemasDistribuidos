@@ -2,6 +2,7 @@ package Resources;
 
 import Server.DatabaseConnection;
 
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -100,4 +101,18 @@ public class Airplane implements Resource {
         }
         return airplanes;
     }
+
+    @Override
+    public Reference getReference() {
+        return Reference.AIRPLANE;
+    }
+
+    public String getDestiny(){
+        return "";
+    }
+
+    public float getPrice() {
+        return (float)0.0;
+    }
+
 }
