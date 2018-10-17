@@ -57,4 +57,9 @@ public class Hotel implements Resource{
             e.printStackTrace();
         }
     }
+
+    @Override
+    public Reference getReference() {
+        return Reference.HOTEL;
+    }
 }

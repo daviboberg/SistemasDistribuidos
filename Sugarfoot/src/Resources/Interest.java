@@ -7,15 +7,18 @@ import java.util.ArrayList;
 
 public class Interest implements Serializable {
 
-    ArrayList<String> references;
-    String destiny;
-    Float price;
-    InterfaceClient client;
+    public ArrayList<Reference> references;
+    public String destiny;
+    public Float price;
+    public InterfaceClient client;
 
-
-    public enum References {
-        AIRPLANE,
-        HOTEL,
-        PACKAGE
+    public boolean inResource(Resource resource) {
+        Reference resource_reference = resource.getReference();
+        for (Reference reference : this.references) {
+            if (reference.equals(resource_reference))
+                return true;
+        }
+        return false;
     }
+
 }
