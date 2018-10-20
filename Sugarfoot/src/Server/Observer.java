@@ -12,10 +12,14 @@ import java.util.List;
 
 class Observer {
 
-    private static ArrayList<Interest> interests = new ArrayList<Interest>();
+    private static ArrayList<Interest> interests = new ArrayList<>();
 
+    /**
+     * Add interest of client
+     * @param interest to add
+     */
     static void addInterest(Interest interest) {
-        List<Resource> resources = new ArrayList<Resource>();
+        List<Resource> resources = new ArrayList<>();
         interests.add(interest);
 
         try {
@@ -28,14 +32,20 @@ class Observer {
         } catch (SQLException | RemoteException e) {
             e.printStackTrace();
         }
-
-
-
     }
 
+    /**
+     * @param resource to process
+     * @throws RemoteException
+     */
     static void processEvents(Resource resource) throws RemoteException {
+        boolean result = false;
         for (Interest interest : interests) {
-            interest.processForResource(resource);
+            result = interest.processForResource(resource);
+            if (result) {
+                interests.remove(interest);
+                break;
+            }
         }
     }
 }

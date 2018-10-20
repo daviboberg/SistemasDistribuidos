@@ -6,7 +6,11 @@ public class DatabaseConnection {
 
     private static Connection connection;
 
-    public static Connection getOrCreate() throws SQLException {
+    /**
+     * @return database connection
+     * @throws SQLException
+     */
+    private static Connection getOrCreate() throws SQLException {
         if (DatabaseConnection.connection != null)
             return DatabaseConnection.connection;
 
@@ -14,6 +18,10 @@ public class DatabaseConnection {
         return DatabaseConnection.connection;
     }
 
+    /**
+     * @param sql
+     * @return preaparedStatement for sql
+     */
     public static PreparedStatement getStatement(String sql) {
         try {
             Connection connection = DatabaseConnection.getOrCreate();
@@ -24,6 +32,9 @@ public class DatabaseConnection {
         return null;
     }
 
+    /**
+     * @return last inserted id or -1 in case of failure
+     */
     public static int getLastInsertedId() {
         PreparedStatement statement = DatabaseConnection.getStatement("SELECT last_insert_rowid() as id");
         try {

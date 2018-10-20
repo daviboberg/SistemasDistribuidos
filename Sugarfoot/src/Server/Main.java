@@ -9,7 +9,7 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws RemoteException, AlreadyBoundException, SQLException, ClassNotFoundException {
+    public static void main(String[] args) throws RemoteException, AlreadyBoundException {
         Server server = new Server(Integer.parseInt(args[0]));
         server.bindServices();
 

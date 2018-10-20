@@ -16,24 +16,30 @@ public class ServerService extends UnicastRemoteObject implements InterfaceServe
         super();
     }
 
+    /**
+     * @param interest
+     */
     @Override
-    public void call(String str, InterfaceClient client) throws RemoteException {
-        client.echo(str);
-    }
-
-    @Override
-    public void registerInterest(Interest interest) throws RemoteException {
+    public void registerInterest(Interest interest) {
         Observer.addInterest(interest);
     }
 
+    /**
+     * @param resource
+     * @return
+     * @throws SQLException
+     */
     @Override
-    public List<Resource> getInformation(Resource resource) throws RemoteException, SQLException {
+    public List<Resource> getInformation(Resource resource) throws SQLException {
         return resource.find();
     }
 
+    /**
+     * @param resource
+     */
     @Override
-    public void postOrder(Resource resource) throws RemoteException {
-        return;
+    public void postOrder(Resource resource) {
+        resource.buy();
     }
 
 }

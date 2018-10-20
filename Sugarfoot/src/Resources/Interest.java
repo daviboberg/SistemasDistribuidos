@@ -13,29 +13,36 @@ public class Interest implements Serializable {
     public Float price;
     public InterfaceClient client;
 
-    public void processForResource(Resource resource) throws RemoteException {
+    public Interest () {
+        references = new ArrayList<>();
+    }
+
+    public boolean processForResource(Resource resource) throws RemoteException {
         Reference resource_reference = resource.getReference();
         for (Reference reference : this.references) {
             if (!reference.equals(resource_reference))
                 continue;
 
             if (!this.destiny.equals(resource.getDestiny()))
-                return;
+                return false;
 
-            if (this.price > resource.getPrice())
-                return;
+            if (this.price <= resource.getPrice())
+                return false;
+
+            System.out.println(resource.getId());
 
             client.postAnnounce(this.getAnnounce(resource));
+            return true;
         }
 
-        return ;
+        return false;
     }
 
     private String getAnnounce(Resource resource) {
         Reference reference = resource.getReference();
         String type = (reference == Reference.AIRPLANE) ? "Voo" :
                       (reference == Reference.HOTEL) ? "Hotel" : "Pacote";
-        return "Um novo " + type + " foi criado com o ID:" + resource.getId();
+        return "Um novo interesse em " + type + " foi encontrado com o ID:" + resource.getId();
     }
 
 }

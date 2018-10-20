@@ -6,17 +6,61 @@ import java.util.List;
 
 public interface Resource extends Serializable {
 
-    public boolean equals(Resource resource);
-    public int getId();
+    /**
+     * @param resource
+     * @return boolean
+     */
+    boolean equals(Resource resource);
 
-    public void insert();
-    public void delete();
+    /**
+     * @return int
+     */
+    int getId();
 
-    public void update();
-    public Reference getReference();
+    /**
+     *
+     */
+    void setId(int id);
 
-    public String getDestiny();
-    public float getPrice();
 
-    public List<Resource> find() throws SQLException;
+    /**
+     *
+     */
+    void insert();
+
+    /**
+     *
+     */
+    void delete();
+
+    /**
+     *
+     */
+    void update();
+
+    /**
+     * @return Reference
+     */
+    Reference getReference();
+
+    /**
+     * @return String
+     */
+    String getDestiny();
+
+    /**
+     * @return
+     */
+    float getPrice();
+
+    /**
+     * @return  List<Resource>
+     * @throws SQLException
+     */
+    List<Resource> find() throws SQLException;
+
+    /**
+     *
+     */
+    void buy();
 }
