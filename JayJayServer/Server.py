@@ -1,5 +1,5 @@
 import time
-from typing import Any, Union
+import urllib.parse
 
 from Response import Response
 from Request import Request
@@ -24,13 +24,17 @@ class MyHandler(BaseHTTPRequestHandler):
         self.processMethod('delete')
 
     def processMethod(self, method):
-        request = Request(method, self.path, self.headers, self.rfile)
+        parse = urllib.parse.urlparse(self.path)
+        request = Request(method, parse.path, parse.query, self.headers, self.rfile)
         response = Router.route(request)  # type: Response
+
+        body_as_bytes = bytes(response.body, 'UTF-8')
 
         self.send_response(response.code)
         self.send_header('Content-type', response.mime_type)
+        self.send_header('Content-Length', str(len(body_as_bytes)))
         self.end_headers()
-        self.wfile.write(bytes(response.body, 'UTF-8'))
+        self.wfile.write(body_as_bytes)
 
 
 if __name__ == '__main__':

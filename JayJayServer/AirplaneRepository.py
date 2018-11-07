@@ -1,0 +1,130 @@
+from datetime import datetime
+
+from Airplane import Airplane
+from DatabaseConnection import DBConnection
+import json
+
+
+class AirplaneRepository:
+
+    @staticmethod
+    def getAll():
+        sql = "SELECT * FROM airplane;"
+        cursor = DBConnection.cursor()
+
+        cursor.execute(sql)
+        airplanes = []
+        for data in cursor.fetchall():
+            airplanes.append(Airplane(data[0],data[1],data[2],data[3],data[4],data[5], data[6]).__dict__)
+
+        return json.dumps(airplanes)
+
+    @staticmethod
+    def getById(id):
+        sql = "SELECT * FROM airplane WHERE id = :id;"
+        cursor = DBConnection.cursor()
+
+        cursor.execute(sql, {"id": id})
+        data = cursor.fetchone()
+
+        if data is None:
+            return json.dumps([])
+
+        airplane = Airplane(data[0], data[1], data[2], data[3], data[4], data[5], data[6])
+
+        return json.dumps(airplane.__dict__)
+
+    @staticmethod
+    def getWithFilters(query):
+        sql = "SELECT * FROM airplane WHERE origin = :origin AND destination = :destination AND date(`date`) = :date;"
+        cursor = DBConnection.cursor()
+
+        cursor.execute(sql, {
+            "origin": query['origin'][0],
+            "destination": query['destination'][0],
+            "date": query['date'][0]
+        })
+
+        data = cursor.fetchone()
+
+        if data is None:
+            return json.dumps([])
+
+        airplane = Airplane(data[0], data[1], data[2], data[3], data[4], data[5], data[6])
+
+        return json.dumps(airplane.__dict__)
+
+    @staticmethod
+    def insert(dict):
+        sql = "INSERT INTO airplane (`flight_number`, `origin`, `destination`, `seats`, `price`, `date`) VALUES (:flight_number, :origin, :destination, :seats, :price, :date);"
+
+        cursor = DBConnection.cursor()
+
+        cursor.execute(sql, dict)
+        DBConnection.commit()
+
+        if cursor.rowcount == 0:
+            return json.dumps({"error": "Failed to insert airplane"})
+
+        return json.dumps({"success": "success"})
+
+    @staticmethod
+    def update(dict):
+        sql = "UPDATE airplane SET `flight_number` = :flight_number, `origin` = :origin, `destination` = :destination, `seats` = :seats, `price` = :price, `date` = :date WHERE id = :id;"
+
+        cursor = DBConnection.cursor()
+
+        cursor.execute(sql, dict)
+        DBConnection.commit()
+
+        if cursor.rowcount == 0:
+            return json.dumps({"error": "Failed to update airplane"})
+
+        return json.dumps({"success": "success"})
+
+    @staticmethod
+    def delete(id):
+        sql = "DELETE FROM airplane WHERE id = :id"
+
+        cursor = DBConnection.cursor()
+
+        cursor.execute(sql, {"id": id})
+        DBConnection.commit()
+
+        if cursor.rowcount == 0:
+            return json.dumps({"error": "Failed to delete airplane"})
+
+        return json.dumps({"success": "success"})
+
+    @staticmethod
+    def buy(dict):
+        available_seats = AirplaneRepository.availableSeats(dict['id'])
+        desired_number_of_seats = int(dict['number_of_seats'])
+
+        if available_seats - desired_number_of_seats <= 0:
+            return json.dumps({"error": "No available seats"})
+
+        sql = "INSERT INTO airplane_ticket (`airplane_id`) VALUES (:airplane_id);"
+
+        cursor = DBConnection.cursor()
+
+        for n in range(desired_number_of_seats):
+            cursor.execute(sql, dict)
+            if cursor.rowcount == 0:
+                return json.dumps({"error": "Failed to buy ticket"})
+
+        DBConnection.commit()
+
+        return json.dumps({"success": "success"})
+
+    @staticmethod
+    def availableSeats(id):
+        sql = "SELECT COALESCE(a.seats - count(at.id) available_seats, 0) FROM airplane_ticket at JOIN airplane a ON a.id = at.airplane_id WHERE a.id = :id;"
+        cursor = DBConnection.cursor()
+
+        cursor.execute(sql, {"id": id})
+        data = cursor.fetchone()
+        print(data)
+
+        return data[0]
+
