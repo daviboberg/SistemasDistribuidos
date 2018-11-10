@@ -13,11 +13,9 @@ class AirplaneRepository:
         cursor = DBConnection.cursor()
 
         cursor.execute(sql)
-        airplanes = []
-        for data in cursor.fetchall():
-            airplanes.append(Airplane(data[0],data[1],data[2],data[3],data[4],data[5], data[6]).__dict__)
+        airplanes = AirplaneRepository.__createAirplaneListFromCursor(cursor)
 
-        return json.dumps(airplanes)
+        return airplanes
 
     @staticmethod
     def getById(id):
@@ -28,11 +26,11 @@ class AirplaneRepository:
         data = cursor.fetchone()
 
         if data is None:
-            return json.dumps([])
+            return None
 
-        airplane = Airplane(data[0], data[1], data[2], data[3], data[4], data[5], data[6])
+        airplane = AirplaneRepository.__createAirplaneFromData(data)
 
-        return json.dumps(airplane.__dict__)
+        return airplane
 
     @staticmethod
     def getWithFilters(query):
@@ -45,14 +43,9 @@ class AirplaneRepository:
             "date": query['date'][0]
         })
 
-        data = cursor.fetchone()
+        airplanes = AirplaneRepository.__createAirplaneListFromCursor()
 
-        if data is None:
-            return json.dumps([])
-
-        airplane = Airplane(data[0], data[1], data[2], data[3], data[4], data[5], data[6])
-
-        return json.dumps(airplane.__dict__)
+        return json.dumps(airplanes)
 
     @staticmethod
     def insert(dict):
@@ -78,9 +71,9 @@ class AirplaneRepository:
         DBConnection.commit()
 
         if cursor.rowcount == 0:
-            return json.dumps({"error": "Failed to update airplane"})
+            return False
 
-        return json.dumps({"success": "success"})
+        return True
 
     @staticmethod
     def delete(id):
@@ -92,9 +85,9 @@ class AirplaneRepository:
         DBConnection.commit()
 
         if cursor.rowcount == 0:
-            return json.dumps({"error": "Failed to delete airplane"})
+            return False
 
-        return json.dumps({"success": "success"})
+        return True
 
     @staticmethod
     def buy(dict):
@@ -103,7 +96,7 @@ class AirplaneRepository:
         desired_number_of_seats = int(dict['number_of_seats'])
 
         if available_seats - desired_number_of_seats < 0:
-            return json.dumps({"error": "No available seats"})
+            return False
 
         sql = "INSERT INTO airplane_ticket (`airplane_id`) VALUES (:airplane_id);"
 
@@ -112,11 +105,11 @@ class AirplaneRepository:
         for n in range(desired_number_of_seats):
             cursor.execute(sql, {"airplane_id": id})
             if cursor.rowcount == 0:
-                return json.dumps({"error": "Failed to buy ticket"})
+                return False
 
         DBConnection.commit()
 
-        return json.dumps({"success": "success"})
+        return True
 
     @staticmethod
     def availableSeats(id):
@@ -132,4 +125,16 @@ WHERE a.id = :id;"""
         print(data)
 
         return data[0]
+
+    @staticmethod
+    def __createAirplaneListFromCursor(cursor):
+        airplanes = []
+        for data in cursor.fetchall():
+            airplanes.append(AirplaneRepository.__createAirplaneFromData(data))
+        return airplanes
+
+    @staticmethod
+    def __createAirplaneFromData(data):
+        airplane = Airplane(data[0], data[1], data[2], data[3], data[4], data[5], data[6])
+        return airplane
 

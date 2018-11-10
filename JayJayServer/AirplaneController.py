@@ -1,3 +1,5 @@
+import json
+from Object import Object
 from Response import Response
 from AirplaneRepository import AirplaneRepository
 
@@ -23,23 +25,37 @@ class AirplaneController:
             return self.__createAirplane(self.request)
 
         if self.__isBuyAction():
-            dict = self.request.getBodyAsDict()
-            json = AirplaneRepository.buy(dict)
-            return Response(200, 'application/json', json)
+            return self.__buy()
 
-        return Response(200, 'application/json', '{"error": "Action not found!"}')
-
-
+        return self.__createErrorResponse("Action not found!")
 
     def put(self):
         dict = self.request.getBodyAsDict()
-        json = AirplaneRepository.update(dict)
-        return Response(200, 'application/json', json)
+        if AirplaneRepository.update(dict):
+            return self.__createSuccessResponse("Airplane updated with success!")
+
+        return self.__createErrorResponse("Error while updating the airplane!")
 
     def delete(self):
-        parameters = self.request.getParameters()
-        json = AirplaneRepository.delete(parameters[0])
-        return Response(200, 'application/json', json)
+        if AirplaneRepository.delete(self.parameters[0]):
+            return self.__createSuccessResponse("Airplane deleted with success!")
+        return self.__createErrorResponse("Error while deleting the airplane!")
+
+    def __buy(self):
+        if self.request.getBodyAsDict():
+            return self.__createSuccessResponse("Airplane created with success!")
+
+        return self.__createErrorResponse("Error while creating the airplane!")
+
+    def __createErrorResponse(self, successMessage):
+        obj = Object()
+        obj.error = successMessage
+        return self.__createResponse(obj)
+
+    def __createSuccessResponse(self, successMessage):
+        obj = Object()
+        obj.success = successMessage
+        return self.__createResponse(obj)
 
     def __haveParameters(self):
         return len(self.parameters) != 0
@@ -51,20 +67,33 @@ class AirplaneController:
     def __createAirplane(self, request):
         dict = request.getBodyAsDict()
         json = AirplaneRepository.insert(dict)
-        return Response(200, 'application/json', json)
+
 
     def __getAll(self):
-        json = AirplaneRepository().getAll()
-        return Response(200, 'application/json', json)
+        airplanes = AirplaneRepository().getAll()
+        return self.__createResponseFromList(airplanes)
+
 
     def __getWithFilters(self, query):
-        json = AirplaneRepository().getWithFilters(query)
-        return Response(200, 'application/json', json)
+        airplanes = AirplaneRepository().getWithFilters(query)
+        return self.__createResponseFromList(airplanes)
 
     def __getById(self, id):
-        json = AirplaneRepository().getById(id)
-        return Response(200, 'application/json', json)
+        airplane = AirplaneRepository().getById(id)
+        return self.__createResponse(airplane)
+
+    def __createResponse(self, obj):
+        if obj is None:
+            return Response(200, 'application/json', "{}")
+        return Response(200, 'application/json', json.dumps(obj.__dict__))
 
     def __isBuyAction(self):
         return self.parameters[0] == "buy"
         pass
+
+    def __createResponseFromList(self, list):
+        elementsDict = []
+        for element in list:
+            elementsDict.append(element.__dict__)
+        return Response(200, 'application/json', json.dumps(elementsDict))
+
