@@ -3,44 +3,55 @@ from AirplaneRepository import AirplaneRepository
 
 class AirplaneController:
 
-    def get(self, request):
-        parameters = request.getParameters()
-        query = request.getQuery()
+    def __init__(self, request):
+        self.request = request
+        self.parameters = request.getParameters()
+        self.query = request.getQuery()
 
-        if (len(parameters) == 0 and len(query) == 0):
-            return self.__getAll()
+    def get(self):
+        if self.__haveParameters():
+            return self.__getById(self.parameters[0])
 
-        if (len(parameters) == 0):
-            return self.__getWithFilters(query)
+        if self.__haveQueries():
+            return self.__getWithFilters(self.query)
 
-        return self.__getById(parameters[0])
+        return self.__getAll()
 
-    def post(self, request):
-        parameters = request.getParameters()
 
-        if (len(parameters) == 0):
-            return self.__createAirplane(request)
+    def post(self):
+        if not self.__haveParameters():
+            return self.__createAirplane(self.request)
 
-        dict = request.getBodyAsDict()
-        json = AirplaneRepository.buy(dict)
+        if self.__isBuyAction():
+            dict = self.request.getBodyAsDict()
+            json = AirplaneRepository.buy(dict)
+            return Response(200, 'application/json', json)
+
+        return Response(200, 'application/json', '{"error": "Action not found!"}')
+
+
+
+    def put(self):
+        dict = self.request.getBodyAsDict()
+        json = AirplaneRepository.update(dict)
         return Response(200, 'application/json', json)
+
+    def delete(self):
+        parameters = self.request.getParameters()
+        json = AirplaneRepository.delete(parameters[0])
+        return Response(200, 'application/json', json)
+
+    def __haveParameters(self):
+        return len(self.parameters) != 0
+
+    def __haveQueries(self):
+        return len(self.query) != 0
 
 
     def __createAirplane(self, request):
         dict = request.getBodyAsDict()
         json = AirplaneRepository.insert(dict)
         return Response(200, 'application/json', json)
-
-    def put(self, request):
-        dict = request.getBodyAsDict()
-        json = AirplaneRepository.update(dict)
-        return Response(200, 'application/json', json)
-
-    def delete(self, request):
-        parameters = request.getParameters()
-        json = AirplaneRepository.delete(parameters[0])
-        return Response(200, 'application/json', json)
-
 
     def __getAll(self):
         json = AirplaneRepository().getAll()
@@ -53,3 +64,7 @@ class AirplaneController:
     def __getById(self, id):
         json = AirplaneRepository().getById(id)
         return Response(200, 'application/json', json)
+
+    def __isBuyAction(self):
+        return self.parameters[0] == "buy"
+        pass
