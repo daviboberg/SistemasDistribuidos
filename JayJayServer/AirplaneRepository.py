@@ -98,10 +98,11 @@ class AirplaneRepository:
 
     @staticmethod
     def buy(dict):
-        available_seats = AirplaneRepository.availableSeats(dict['id'])
+        id = dict['id']
+        available_seats = AirplaneRepository.availableSeats(id)
         desired_number_of_seats = int(dict['number_of_seats'])
 
-        if available_seats - desired_number_of_seats <= 0:
+        if available_seats - desired_number_of_seats < 0:
             return json.dumps({"error": "No available seats"})
 
         sql = "INSERT INTO airplane_ticket (`airplane_id`) VALUES (:airplane_id);"
@@ -109,7 +110,7 @@ class AirplaneRepository:
         cursor = DBConnection.cursor()
 
         for n in range(desired_number_of_seats):
-            cursor.execute(sql, dict)
+            cursor.execute(sql, {"airplane_id": id})
             if cursor.rowcount == 0:
                 return json.dumps({"error": "Failed to buy ticket"})
 
@@ -119,7 +120,11 @@ class AirplaneRepository:
 
     @staticmethod
     def availableSeats(id):
-        sql = "SELECT COALESCE(a.seats - count(at.id) available_seats, 0) FROM airplane_ticket at JOIN airplane a ON a.id = at.airplane_id WHERE a.id = :id;"
+        sql = """
+SELECT a.seats - COALESCE(count(at.id), 0) available_seats
+FROM airplane a
+       LEFT JOIN airplane_ticket at ON a.id = at.airplane_id
+WHERE a.id = :id;"""
         cursor = DBConnection.cursor()
 
         cursor.execute(sql, {"id": id})
