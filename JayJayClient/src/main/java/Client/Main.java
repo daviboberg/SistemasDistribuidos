@@ -1,11 +1,8 @@
 package Client;
 
 import Resources.*;
-import com.google.gson.Gson;
 
-import javax.ws.rs.core.Response;
 import java.net.URISyntaxException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -81,15 +78,14 @@ public class Main {
 
             tryToBuy(new Hotel(), hotels);
         }
-//
-//        if (type.equals(Main.TYPE_PACKAGE)) {
-//            PackageResource package_resource = new PackageResource();
-//            Main.requestPackage(package_resource);
-//            List<Resource> packages = client.getInformation(package_resource);
-//            Main.showInformation(packages, Main.TYPE_PACKAGE);
-//
-//            tryToBuy(package_resource, packages);
-//        }
+
+        if (type.equals(Main.TYPE_PACKAGE)) {
+            TravelPackageFilters travel_package_filters = Main.requestPackage();
+            List<Resource> packages = TravelPackage.getPackageByFilters(travel_package_filters);
+            Main.showInformation(packages, Main.TYPE_PACKAGE);
+
+            tryToBuy(new TravelPackage(), packages);
+        }
     }
 
     private static void requestAirplaneGoingInformation(AirplaneFilters airplane_filters) {
@@ -130,6 +126,25 @@ public class Main {
         hotel_filters.rooms = Integer.parseInt(scanner.nextLine());
         System.out.println("Digite preço:");
         hotel_filters.price = Float.parseFloat(scanner.nextLine());
+    }
+
+    private static TravelPackageFilters requestPackage() {
+        System.out.println("Digite origem:");
+        String origin = scanner.nextLine();
+        System.out.println("Digite destino:");
+        String destination = scanner.nextLine();
+        System.out.println("Digite data inicial:");
+        String initial_date = scanner.nextLine();
+        System.out.println("Digite data final:");
+        String end_date = scanner.nextLine();
+        System.out.println("Digite número de pessoas:");
+        int number_passengers = Integer.parseInt(scanner.nextLine());
+        System.out.println("Digite número de quartos:");
+        int number_rooms = Integer.parseInt(scanner.nextLine());
+        System.out.println("Digite preço:");
+        float price = Float.parseFloat(scanner.nextLine());
+
+        return new TravelPackageFilters(origin, destination, initial_date, end_date, number_passengers, number_rooms, price);
     }
 
     private static void tryToBuy(Resource resource, List<Resource> resources) throws URISyntaxException {
