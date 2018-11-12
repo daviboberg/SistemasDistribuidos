@@ -135,6 +135,7 @@ WHERE a.id = :id;"""
 
     @staticmethod
     def __createAirplaneFromData(data):
-        airplane = Airplane(data[0], data[1], data[2], data[3], data[4], data[5], data[6])
+        available_seats = AirplaneRepository.availableSeats(data[0])
+        airplane = Airplane(data[0], data[1], data[2], data[3], data[4], data[5], data[6], available_seats)
         return airplane
 
