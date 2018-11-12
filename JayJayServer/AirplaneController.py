@@ -44,10 +44,11 @@ class AirplaneController:
         return self.__createErrorResponse("Error while deleting the airplane!")
 
     def __buy(self):
-        if self.request.getBodyAsDict():
-            return self.__createSuccessResponse("Airplane created with success!")
+        dict = self.request.getBodyAsDict()
+        if AirplaneRepository.buy(dict):
+            return self.__createSuccessResponse("Ticket bought with success!")
 
-        return self.__createErrorResponse("Error while creating the airplane!")
+        return self.__createErrorResponse("Error while buying ticket for airplane!")
 
     def __createErrorResponse(self, successMessage):
         obj = Object()
