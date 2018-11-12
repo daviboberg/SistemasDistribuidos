@@ -1,5 +1,6 @@
 from datetime import datetime
 
+import JsonHelper
 from Airplane import Airplane
 from DatabaseConnection import DBConnection
 import json
@@ -43,9 +44,8 @@ class AirplaneRepository:
             "date": query['date'][0]
         })
 
-        airplanes = AirplaneRepository.__createAirplaneListFromCursor()
-
-        return json.dumps(airplanes)
+        airplanes = AirplaneRepository.__createAirplaneListFromCursor(cursor)
+        return airplanes
 
     @staticmethod
     def insert(dict):

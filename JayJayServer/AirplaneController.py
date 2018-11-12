@@ -1,4 +1,6 @@
 import json
+
+import JsonHelper
 from Object import Object
 from Response import Response
 from AirplaneRepository import AirplaneRepository
@@ -92,8 +94,8 @@ class AirplaneController:
         pass
 
     def __createResponseFromList(self, list):
-        elementsDict = []
-        for element in list:
-            elementsDict.append(element.__dict__)
+        elementsDict = JsonHelper.getJsonFromList(list)
         return Response(200, 'application/json', json.dumps(elementsDict))
+
+
 
