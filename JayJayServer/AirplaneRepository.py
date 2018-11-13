@@ -57,9 +57,9 @@ class AirplaneRepository:
         DBConnection.commit()
 
         if cursor.rowcount == 0:
-            return json.dumps({"error": "Failed to insert airplane"})
+            return False
 
-        return json.dumps({"success": "success"})
+        return True
 
     @staticmethod
     def update(dict):
