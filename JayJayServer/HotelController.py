@@ -14,7 +14,19 @@ class HotelController(Controller):
         return self.__getAll()
 
     def post(self):
-        return self.__createHotel();
+        return self.__createHotel()
+
+    def put(self):
+        dict = self.request.getBodyAsDict()
+        if HotelRepository.update(dict):
+            return self.createSuccessResponse("Hotel updated with success!")
+
+        return self.createErrorResponse("Error while updating the hotel!")
+
+    def delete(self):
+        if HotelRepository.delete(self.parameters[0]):
+            return self.createSuccessResponse("Hotel was deleted with success!")
+        return self.createErrorResponse("Error while deleting hotel!")
 
     def __getById(self):
         hotel = HotelRepository.getById(self.parameters[0])

@@ -52,6 +52,37 @@ class HotelRepository:
         return True
 
     @staticmethod
+    def update(dict):
+        sql = """
+        UPDATE hotel SET `name` = :name, `city` = :city WHERE id = :id;
+        """
+
+        cursor = DBConnection.cursor()
+
+        cursor.execute(sql, dict)
+        DBConnection.commit()
+
+        if cursor.rowcount == 0:
+            return False
+
+        return True
+
+
+    @staticmethod
+    def delete(id):
+        sql = "DELETE FROM hotel where id = :id;"
+
+        cursor = DBConnection.cursor()
+
+        cursor.execute(sql, {"id": id})
+        DBConnection.commit()
+
+        if cursor.rowcount == 0:
+            return False
+
+        return True
+
+    @staticmethod
     def __createHotelListFromCursor(cursor):
         hotels = []
         for data in cursor.fetchall():
