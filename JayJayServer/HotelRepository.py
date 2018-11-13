@@ -91,5 +91,5 @@ class HotelRepository:
 
     @staticmethod
     def __createHotelFromData(data):
-        airplane = Hotel(data[0], data[1], data[2], data[3])
-        return airplane
+        hotel = Hotel(data[0], data[1], data[2], data[3])
+        return hotel
