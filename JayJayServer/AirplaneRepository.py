@@ -57,9 +57,9 @@ class AirplaneRepository:
         DBConnection.commit()
 
         if cursor.rowcount == 0:
-            return json.dumps({"error": "Failed to insert airplane"})
+            return False
 
-        return json.dumps({"success": "success"})
+        return True
 
     @staticmethod
     def update(dict):
@@ -135,6 +135,7 @@ WHERE a.id = :id;"""
 
     @staticmethod
     def __createAirplaneFromData(data):
-        airplane = Airplane(data[0], data[1], data[2], data[3], data[4], data[5], data[6])
+        available_seats = AirplaneRepository.availableSeats(data[0])
+        airplane = Airplane(data[0], data[1], data[2], data[3], data[4], data[5], data[6], available_seats)
         return airplane
 
