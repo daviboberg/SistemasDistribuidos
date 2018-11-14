@@ -65,23 +65,22 @@ class HotelRepository:
 		return hotel
 
 	def getWithFilters(self, query):
-		sql = """SELECT *
+		sql = """
+SELECT hr.id, hr.price, hr.size, h.id
 FROM hotel h
      JOIN hotel_room hr ON h.id = hr.hotel_id
      LEFT JOIN hotel_room_check_in hrc ON hrc.hotel_room_id = hr.id
-WHERE hrc.id IS NULL
-   OR NOT (
-          :desired_out_date BETWEEN hrc.check_in_date AND  hrc.check_out_date
-            OR :desired_in_date BETWEEN hrc.check_in_date AND hrc.check_out_date
-            OR (
-              :desired_out_date > hrc.check_out_date AND :desired_in_date < hrc.check_in_date
-              )
-          );"""
+WHERE hr.price <= :price
+  AND (hrc.id IS NULL
+         OR :check_in_date > hrc.check_out_date
+         OR :check_out_date < hrc.check_in_date);
+"""
 		cursor = DBConnection.cursor()
 
 		cursor.execute(sql, {
 			"check_out_date": query['check_out_date'][0],
 			"check_in_date": query['check_in_date'][0],
+			"price": query['price'][0],
 		})
 
 		rooms = HotelRepository.__createRoomListFromCursor(cursor)

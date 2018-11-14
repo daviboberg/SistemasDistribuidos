@@ -18,7 +18,7 @@ class HotelController(Controller):
 		return self.__getAll()
 
 	def post(self):
-		return self.__createHotel();
+		return self.__createHotel()
 
 	def __getById(self):
 		hotel = HotelRepository.getById(self.parameters[0])

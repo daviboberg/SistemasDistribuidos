@@ -83,15 +83,30 @@ public class Main {
 
             Main.showInformation(hotels, TYPE_HOTEL);
 
-            tryToBuy(new Hotel(), hotels, hotel_filters.rooms);
+            tryToBookHotel(new Hotel(), hotels, hotel_filters.rooms, hotel_filters.start_date, hotel_filters.end_date);
         }
 
         if (type.equals(Main.TYPE_PACKAGE)) {
-            TravelPackageFilters travel_package_filters = Main.requestPackage();
-            List<Resource> packages = TravelPackage.getPackageByFilters(travel_package_filters);
-            Main.showInformation(packages, Main.TYPE_PACKAGE);
+            HotelFilters hotel_filters = new HotelFilters();
+            AirplaneFilters airplane_going_filter = new AirplaneFilters();
+            AirplaneFilters airplane_return_filter = new AirplaneFilters();
+            Main.requestPackage(hotel_filters, airplane_going_filter, airplane_return_filter);
 
-            tryToBuy(new TravelPackage(), packages, travel_package_filters.number_persons);
+            List<Resource> package_hotels = Hotel.getHotelByFilters(hotel_filters);
+            Main.showInformation(package_hotels, Main.TYPE_HOTEL);
+            System.out.println("Alugar quarto de hotel");
+            tryToBookHotel(new Hotel(), package_hotels, hotel_filters.rooms, hotel_filters.start_date, hotel_filters.end_date);
+
+            List<Resource> package_airplane_going = Airplane.getAirplanesByFilters(airplane_going_filter);
+            Main.showInformation(package_airplane_going, Main.TYPE_AIRPLANE);
+            System.out.println("Comprar passagem de ida");
+            tryToBuy(new Airplane(), package_airplane_going, airplane_going_filter.numbet_of_seats);
+
+            List<Resource> package_airplane_return = Airplane.getAirplanesByFilters(airplane_return_filter);
+            Main.showInformation(package_airplane_return, Main.TYPE_AIRPLANE);
+            System.out.println("Comprar passagem de volta");
+            tryToBuy(new Airplane(), package_airplane_return, airplane_return_filter.numbet_of_seats);
+
         }
     }
 
@@ -135,23 +150,55 @@ public class Main {
         hotel_filters.price = Float.parseFloat(scanner.nextLine());
     }
 
-    private static TravelPackageFilters requestPackage() {
+    private static void requestPackage(HotelFilters hotel_filters, AirplaneFilters airplane_going_filter, AirplaneFilters airplane_return_filter) {
         System.out.println("Digite origem:");
         String origin = scanner.nextLine();
         System.out.println("Digite destino:");
         String destination = scanner.nextLine();
         System.out.println("Digite data inicial:");
-        String initial_date = scanner.nextLine();
+        String going_date = scanner.nextLine();
         System.out.println("Digite data final:");
-        String end_date = scanner.nextLine();
+        String return_date = scanner.nextLine();
         System.out.println("Digite número de pessoas:");
         int number_passengers = Integer.parseInt(scanner.nextLine());
         System.out.println("Digite número de quartos:");
         int number_rooms = Integer.parseInt(scanner.nextLine());
-        System.out.println("Digite preço:");
+        System.out.println("Digite preço do hotel:");
         float price = Float.parseFloat(scanner.nextLine());
+        System.out.println("Digite preço da passagem:");
+        float price_airplane = Float.parseFloat(scanner.nextLine());
 
-        return new TravelPackageFilters(origin, destination, initial_date, end_date, number_passengers, number_rooms, price);
+        hotel_filters.location = destination;
+        hotel_filters.price = price;
+        hotel_filters.capacity = number_passengers;
+        hotel_filters.rooms = number_rooms;
+        hotel_filters.start_date = going_date;
+        hotel_filters.end_date = return_date;
+
+        airplane_going_filter.origin = origin;
+        airplane_going_filter.destination = destination;
+        airplane_going_filter.seats = number_passengers;
+        airplane_going_filter.date = going_date;
+        airplane_going_filter.price = price_airplane;
+
+        airplane_return_filter.origin = destination;
+        airplane_return_filter.destination = origin;
+        airplane_return_filter.seats = number_passengers;
+        airplane_return_filter.date = return_date;
+        airplane_return_filter.price = price_airplane;
+    }
+
+    private static boolean tryToBookHotel(Hotel hotel, List<Resource> hotels, int quantity_to_buy, String check_in_date, String check_out_date) throws URISyntaxException {
+        if (hotels.size() <= 0) {
+            return false;
+        }
+
+        int buy_id = Main.requestBuy();
+        if (buy_id >= 0) {
+            Hotel resource_to_buy = (Hotel)Main.findResourceInListById(hotels, buy_id);
+            hotel.bookHotel(resource_to_buy, quantity_to_buy, check_in_date, check_out_date);
+        }
+        return true;
     }
 
     private static boolean tryToBuy(Resource resource, List<Resource> resources, int quantity_to_buy) throws URISyntaxException {
