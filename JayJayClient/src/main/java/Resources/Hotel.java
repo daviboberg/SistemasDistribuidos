@@ -10,6 +10,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -22,6 +23,8 @@ public class Hotel implements Resource {
     public int capacity;
     public float price;
     private static String path = "Hotel";
+    public String check_in_date;
+    public String check_out_date;
 
     private static Gson gson = new Gson();
 
@@ -37,8 +40,16 @@ public class Hotel implements Resource {
     }
 
     @Override
-    public void buy(Resource resource, int quantity_to_buy) {
-        this.locateHotelRoom(resource);
+    public void buy(Resource resource, int quantity_to_buy) throws URISyntaxException {
+
+    }
+
+    public void bookHotel(Resource resource, int quantity_to_buy, String check_in_date, String check_out_date) {
+        Hotel hotel = (Hotel) resource;
+        hotel.rooms = quantity_to_buy;
+        hotel.check_in_date = check_in_date;
+        hotel.check_out_date = check_out_date;
+        this.locateHotelRoom(hotel);
 
     }
 

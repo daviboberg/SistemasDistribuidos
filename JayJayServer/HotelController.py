@@ -30,7 +30,6 @@ class HotelController(Controller):
 
 		return self.createErrorResponse("Action not found!")
 
-
 	def __getById(self):
 		hotel = HotelRepository.getById(self.parameters[0])
 		return self.createResponse(hotel)

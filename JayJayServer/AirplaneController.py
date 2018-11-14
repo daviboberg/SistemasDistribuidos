@@ -21,8 +21,6 @@ class AirplaneController(Controller):
         if not self.haveParameters():
             return self.__createAirplane(self.request)
 
-        print("Parameters")
-        print(self.parameters)
         if self.__isBuyAction():
             return self.__buy()
 
@@ -42,8 +40,6 @@ class AirplaneController(Controller):
 
     def __buy(self):
         dict = self.request.getBodyAsDict()
-        print("buy'")
-        print(dict)
         if AirplaneRepository.buy(dict):
             return self.createSuccessResponse("Ticket bought with success!")
 
