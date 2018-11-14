@@ -37,7 +37,7 @@ public class Hotel implements Resource {
     }
 
     @Override
-    public void buy(Resource resource) {
+    public void buy(Resource resource, int quantity_to_buy) {
         this.locateHotelRoom(resource);
 
     }
@@ -57,12 +57,14 @@ public class Hotel implements Resource {
         Map<String, String> hashMap = new HashMap<>();
         hashMap.put("location", hotel_filters.location);
         hashMap.put("rooms", String.valueOf(hotel_filters.rooms));
-        hashMap.put("start_date", hotel_filters.start_date);
-        hashMap.put("end_date", hotel_filters.end_date);
+        hashMap.put("check_in_date", hotel_filters.start_date);
+        hashMap.put("check_out_date", hotel_filters.end_date);
         hashMap.put("price", String.valueOf(hotel_filters.price));
 
         Response response = Client.getAllWithFilters(Hotel.path, hashMap);
         String output = response.readEntity(String.class);
+
+        System.out.println(output);
 
         if (response.getStatus() != 200) {
             System.out.println("Request Error");
@@ -74,7 +76,7 @@ public class Hotel implements Resource {
 
         ArrayList<Resource> hotels = new ArrayList<>();
         for (int i = 0; i < hotel_string.size(); i++) {
-            hotels.add(gson.fromJson(hotel_string.get(i).toString(), Airplane.class));
+            hotels.add(gson.fromJson(hotel_string.get(i).toString(), Hotel.class));
         }
 
         return hotels;

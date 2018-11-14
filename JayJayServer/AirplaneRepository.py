@@ -95,6 +95,7 @@ class AirplaneRepository:
         available_seats = AirplaneRepository.availableSeats(id)
         desired_number_of_seats = int(dict['number_of_seats'])
 
+        print("Buying")
         if available_seats - desired_number_of_seats < 0:
             return False
 
@@ -108,7 +109,7 @@ class AirplaneRepository:
                 return False
 
         DBConnection.commit()
-
+        print("Bought")
         return True
 
     @staticmethod

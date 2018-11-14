@@ -4,31 +4,40 @@ from Controller import Controller
 
 class HotelController(Controller):
 
-    def __init__(self, request):
-        super().__init__(request)
+	def __init__(self, request):
+		super().__init__(request)
 
-    def get(self):
-        if self.haveParameters():
-            return self.__getById()
+	def get(self):
+		if self.haveParameters():
+			return self.__getById()
 
-        return self.__getAll()
+		print(self.query)
+		if self.haveQueries():
+			return self.__getWithFilters(self.query)
 
-    def post(self):
-        return self.__createHotel();
+		return self.__getAll()
 
-    def __getById(self):
-        hotel = HotelRepository.getById(self.parameters[0])
-        return self.createResponse(hotel)
+	def post(self):
+		return self.__createHotel();
 
-    def __getAll(self):
-        hotels = HotelRepository.getAll()
-        return self.createResponseFromList(hotels)
+	def __getById(self):
+		hotel = HotelRepository.getById(self.parameters[0])
+		return self.createResponse(hotel)
 
-    def __createHotel(self):
-        dict = self.request.getBodyAsDict()
-        if HotelRepository.insert(dict):
-            return self.createSuccessResponse("Hotel created with success!")
+	def __getAll(self):
+		hotels = HotelRepository.getAll()
+		return self.createResponseFromList(hotels)
 
-        return self.createErrorResponse("Error while creating hotel!")
+	def __createHotel(self):
+		dict = self.request.getBodyAsDict()
+		if HotelRepository.insert(dict):
+			return self.createSuccessResponse("Hotel created with success!")
 
+		return self.createErrorResponse("Error while creating hotel!")
 
+	def __getWithFilters(self, query):
+		hotels = HotelRepository().getWithFilters(query)
+		response = self.createResponseFromList(hotels)
+		print(response.body)
+		print(response.mime_type)
+		return response

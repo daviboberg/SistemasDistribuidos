@@ -8,5 +8,5 @@ public interface Resource {
 
     public int getId();
 
-    void buy(Resource resource) throws URISyntaxException;
+    void buy(Resource resource, int quantity_to_buy) throws URISyntaxException;
 }

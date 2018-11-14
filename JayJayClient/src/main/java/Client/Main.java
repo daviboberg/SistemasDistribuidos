@@ -61,11 +61,17 @@ public class Main {
             }
 
             System.out.println("Comprar passagem de ida");
-            tryToBuy(new Airplane(), airplanes);
+            boolean bought = tryToBuy(new Airplane(), airplanes, airplane_filters.seats);
+            if (!bought) {
+                System.out.println("Passagem de ida indisponível");
+            }
 
             if (with_return) {
                 System.out.println("Comprar passagem de volta");
-                tryToBuy(new Airplane(), airplanes_return);
+                bought = tryToBuy(new Airplane(), airplanes_return, airplane_return_filters.seats);
+                if (!bought) {
+                    System.out.println("Passagem de volta indisponível");
+                }
             }
 
         }
@@ -74,9 +80,10 @@ public class Main {
             HotelFilters hotel_filters = new HotelFilters();
             Main.requestHotel(hotel_filters);
             List<Resource> hotels = Hotel.getHotelByFilters(hotel_filters);
+
             Main.showInformation(hotels, TYPE_HOTEL);
 
-            tryToBuy(new Hotel(), hotels);
+            tryToBuy(new Hotel(), hotels, hotel_filters.rooms);
         }
 
         if (type.equals(Main.TYPE_PACKAGE)) {
@@ -84,7 +91,7 @@ public class Main {
             List<Resource> packages = TravelPackage.getPackageByFilters(travel_package_filters);
             Main.showInformation(packages, Main.TYPE_PACKAGE);
 
-            tryToBuy(new TravelPackage(), packages);
+            tryToBuy(new TravelPackage(), packages, travel_package_filters.number_persons);
         }
     }
 
@@ -147,14 +154,18 @@ public class Main {
         return new TravelPackageFilters(origin, destination, initial_date, end_date, number_passengers, number_rooms, price);
     }
 
-    private static void tryToBuy(Resource resource, List<Resource> resources) throws URISyntaxException {
-        if (resources.size() > 0) {
-            int buy_id = Main.requestBuy();
-            if (buy_id >= 0) {
-                Resource resource_to_buy = Main.findResourceInListById(resources, buy_id);
-                resource.buy(resource_to_buy);
-            }
+    private static boolean tryToBuy(Resource resource, List<Resource> resources, int quantity_to_buy) throws URISyntaxException {
+
+        if (resources.size() <= 0) {
+            return false;
         }
+
+        int buy_id = Main.requestBuy();
+        if (buy_id >= 0) {
+            Resource resource_to_buy = Main.findResourceInListById(resources, buy_id);
+            resource.buy(resource_to_buy, quantity_to_buy);
+        }
+        return true;
     }
 
     private static Resource findResourceInListById(List<Resource> resources, int id) {
@@ -197,6 +208,7 @@ public class Main {
 
 
     private static void showInformation(List<Resource> result, String package_type) {
+        System.out.println(package_type);
         switch (package_type) {
             case TYPE_AIRPLANE:
                 System.out.println("Passagens disponíveis: ");
@@ -205,20 +217,20 @@ public class Main {
                     System.out.println("Id: " + airplane.id + " preço por passagem: " + airplane.price);
                 }
                 break;
-//            case Main.TYPE_HOTEL:
-//                System.out.println("Hospedagem disponíveis: ");
-//                for (Resource resource: result) {
-//                    Hotel hotel = (Hotel) resource;
-//                    System.out.println("Id: " + hotel.id + " preço total: " + hotel.price);
-//                }
-//                break;
-//            case TYPE_PACKAGE:
-//                System.out.println("Pacotes disponíveis: ");
-//                for (Resource resource: result) {
-//                    PackageResource package_resource = (PackageResource) resource;
-//                    System.out.println("Id: " + package_resource.id + " preço total: " + package_resource.price);
-//                }
-//                break;
+            case Main.TYPE_HOTEL:
+                System.out.println("Hospedagem disponíveis: ");
+                for (Resource resource: result) {
+                    Hotel hotel = (Hotel) resource;
+                    System.out.println("Id: " + hotel.id + " preço total: " + hotel.price);
+                }
+                break;
+            case TYPE_PACKAGE:
+                System.out.println("Pacotes disponíveis: ");
+                for (Resource resource: result) {
+                    TravelPackage package_resource = (TravelPackage) resource;
+                    System.out.println("Id: " + package_resource.id + " preço total: " + package_resource.price);
+                }
+                break;
         }
         System.out.println();
     }

@@ -21,6 +21,7 @@ public class Airplane implements Resource {
     public String origin;
     public String destination;
     public int seats;
+    public int number_of_seats;
     public float price;
     public String date;
     private static String path = "Airplane";
@@ -34,7 +35,7 @@ public class Airplane implements Resource {
     @Path("/Airplane")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response buyAirplaneTicket(Resource resource ) {
+    public Response buyAirplaneTicket(Resource resource) {
         Response response = Client.buy(Airplane.path, resource);
         String output = response.readEntity(String.class);
         System.out.println(output);
@@ -79,7 +80,9 @@ public class Airplane implements Resource {
     }
 
     @Override
-    public void buy(Resource resource) {
-        this.buyAirplaneTicket(resource);
+    public void buy(Resource resource, int quantity_to_buy) {
+        Airplane airplane = (Airplane)resource;
+        airplane.number_of_seats = quantity_to_buy;
+        this.buyAirplaneTicket(airplane);
     }
 }

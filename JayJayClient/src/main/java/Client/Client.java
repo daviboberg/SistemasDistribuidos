@@ -52,6 +52,6 @@ public class Client {
                 .target(REST_URI)
                 .path(path + "/buy/" + String.valueOf(resource.getId()))
                 .request(APPLICATION_JSON)
-                .put(Entity.entity(resource, MediaType.APPLICATION_JSON));
+                .post(Entity.entity(resource, MediaType.APPLICATION_JSON));
     }
 }

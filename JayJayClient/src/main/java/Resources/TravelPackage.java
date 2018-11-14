@@ -10,13 +10,16 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class TravelPackage implements Resource {
+
+    public String id;
+    public String price;
+
 
     private static String path = "Package";
     private static Gson gson = new Gson();
@@ -32,7 +35,7 @@ public class TravelPackage implements Resource {
     }
 
     @Override
-    public void buy(Resource resource) {
+    public void buy(Resource resource, int quantity_to_buy) {
         this.buyTravelPackage(resource);
     }
 

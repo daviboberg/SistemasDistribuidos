@@ -17,9 +17,12 @@ class AirplaneController(Controller):
         return self.__getAll()
 
     def post(self):
+        print("Post")
         if not self.haveParameters():
             return self.__createAirplane(self.request)
 
+        print("Parameters")
+        print(self.parameters)
         if self.__isBuyAction():
             return self.__buy()
 
@@ -39,6 +42,8 @@ class AirplaneController(Controller):
 
     def __buy(self):
         dict = self.request.getBodyAsDict()
+        print("buy'")
+        print(dict)
         if AirplaneRepository.buy(dict):
             return self.createSuccessResponse("Ticket bought with success!")
 
@@ -65,4 +70,3 @@ class AirplaneController(Controller):
 
     def __isBuyAction(self):
         return self.parameters[0] == "buy"
-        pass
