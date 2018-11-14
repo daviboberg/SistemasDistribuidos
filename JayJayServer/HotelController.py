@@ -18,7 +18,17 @@ class HotelController(Controller):
 		return self.__getAll()
 
 	def post(self):
-		return self.__createHotel()
+		if not self.haveParameters:
+			return self.__createHotel()
+
+		if self.__isInsertRoomAction():
+			return self.__insertRoom()
+		
+		if self.__isBuyAction():
+			return self.__buy()
+			
+
+		return self.createErrorResponse("Action not found!")
 
 	def __getById(self):
 		hotel = HotelRepository.getById(self.parameters[0])
@@ -41,3 +51,24 @@ class HotelController(Controller):
 		print(response.body)
 		print(response.mime_type)
 		return response
+
+	def __insertRoom(self):
+		dict = self.request.getBodyAsDict()
+		if HotelRepository.insertRoom(dict):
+			return self.createSuccessResponse("Hotel room created with success!")
+
+		return self.createErrorResponse("Error while creating the hotel room!")
+
+
+	def __isInsertRoomAction(self):
+		return self.parameters[0] == "insertRoom"
+
+	def __isBuyAction(self):
+		return self.parameters[0] == "buy"
+
+	def __buy(self):
+		dict = self.request.getBodyAsDict()
+		if HotelRepository.buy(dict):
+			return self.createSuccessResponse("Hotel room bought with success!")
+
+		return self.createErrorResponse("Error buying the hotel room!")
