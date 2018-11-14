@@ -83,7 +83,7 @@ public class Main {
 
             Main.showInformation(hotels, TYPE_HOTEL);
 
-            tryToBookHotel(new Hotel(), hotels, hotel_filters.rooms, hotel_filters.start_date, hotel_filters.end_date);
+            tryToBookHotel(new Hotel(), hotels, hotel_filters.rooms, hotel_filters.start_date, hotel_filters.end_date, hotel_filters.capacity);
         }
 
         if (type.equals(Main.TYPE_PACKAGE)) {
@@ -95,7 +95,7 @@ public class Main {
             List<Resource> package_hotels = Hotel.getHotelByFilters(hotel_filters);
             Main.showInformation(package_hotels, Main.TYPE_HOTEL);
             System.out.println("Alugar quarto de hotel");
-            tryToBookHotel(new Hotel(), package_hotels, hotel_filters.rooms, hotel_filters.start_date, hotel_filters.end_date);
+            tryToBookHotel(new Hotel(), package_hotels, hotel_filters.rooms, hotel_filters.start_date, hotel_filters.end_date, hotel_filters.capacity);
 
             List<Resource> package_airplane_going = Airplane.getAirplanesByFilters(airplane_going_filter);
             Main.showInformation(package_airplane_going, Main.TYPE_AIRPLANE);
@@ -180,15 +180,18 @@ public class Main {
         airplane_going_filter.seats = number_passengers;
         airplane_going_filter.date = going_date;
         airplane_going_filter.price = price_airplane;
+        airplane_going_filter.numbet_of_seats = number_passengers;
 
         airplane_return_filter.origin = destination;
         airplane_return_filter.destination = origin;
         airplane_return_filter.seats = number_passengers;
         airplane_return_filter.date = return_date;
         airplane_return_filter.price = price_airplane;
+        airplane_return_filter.numbet_of_seats = number_passengers;
+
     }
 
-    private static boolean tryToBookHotel(Hotel hotel, List<Resource> hotels, int quantity_to_buy, String check_in_date, String check_out_date) throws URISyntaxException {
+    private static boolean tryToBookHotel(Hotel hotel, List<Resource> hotels, int quantity_to_buy, String check_in_date, String check_out_date, int capacity) throws URISyntaxException {
         if (hotels.size() <= 0) {
             return false;
         }
@@ -196,7 +199,7 @@ public class Main {
         int buy_id = Main.requestBuy();
         if (buy_id >= 0) {
             Hotel resource_to_buy = (Hotel)Main.findResourceInListById(hotels, buy_id);
-            hotel.bookHotel(resource_to_buy, quantity_to_buy, check_in_date, check_out_date);
+            hotel.bookHotel(resource_to_buy, quantity_to_buy, check_in_date, check_out_date, capacity);
         }
         return true;
     }

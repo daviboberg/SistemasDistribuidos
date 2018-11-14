@@ -44,11 +44,12 @@ public class Hotel implements Resource {
 
     }
 
-    public void bookHotel(Resource resource, int quantity_to_buy, String check_in_date, String check_out_date) {
+    public void bookHotel(Resource resource, int quantity_to_buy, String check_in_date, String check_out_date, int capacity) {
         Hotel hotel = (Hotel) resource;
         hotel.rooms = quantity_to_buy;
         hotel.check_in_date = check_in_date;
         hotel.check_out_date = check_out_date;
+        hotel.capacity = capacity;
         this.locateHotelRoom(hotel);
 
     }
@@ -71,6 +72,7 @@ public class Hotel implements Resource {
         hashMap.put("check_in_date", hotel_filters.start_date);
         hashMap.put("check_out_date", hotel_filters.end_date);
         hashMap.put("price", String.valueOf(hotel_filters.price));
+        hashMap.put("capacity", String.valueOf(hotel_filters.capacity));
 
         Response response = Client.getAllWithFilters(Hotel.path, hashMap);
         String output = response.readEntity(String.class);

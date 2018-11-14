@@ -8,9 +8,12 @@ class Router:
     @staticmethod
     def route(request):
         try:
-            uri_parts = request.path.split('/')
-            klass = Router.getKlass(uri_parts[1])
+            path = request.path.split('/')
+            # Get the correct  Class to handle the request
+            klass = Router.getKlass(path[1])
+            # Create intance passing the request to the constructor
             instance = klass(request)
+            # Call the corretc method in the controller class. get(), put(), post(), delete()
             return getattr(instance, request.method)()
         except Exception as inst:
             print (inst)
@@ -19,9 +22,11 @@ class Router:
 
     @staticmethod
     def getKlass(model):
+        # If exists an 'Model'Controller in the module AirplaneController, this is the class
         klass = getattr(AirplaneController, model + "Controller", None)
         if klass is not None:
             return klass
+        # If exists an 'Model'Controller in the module HotelController, this is the class
         klass = getattr(HotelController, model + "Controller", None)
         if klass is not None:
             return klass

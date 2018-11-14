@@ -1,3 +1,4 @@
+# Data structure of response
 class Response:
 
     def __init__(self, code, mime_type, body):
