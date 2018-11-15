@@ -1,23 +1,20 @@
 package Resources;
 
+// Filters used for Hotel search
 public class HotelFilters {
 
+    // Hotel location
     public String location;
+    // Hotel number of rooms
     public int rooms;
+    // Hotel room price
     public float price;
+    // Hotel check-in date
     public String start_date;
+    // Hotel check-out date
     public String end_date;
+    // Hotel room capacity
     public int capacity;
-
-    public HotelFilters(String location, String going_date, String return_date, int number_passengers, int number_rooms, float price) {
-
-        this.location = location;
-        this.start_date = going_date;
-        this.end_date = return_date;
-        this.capacity= number_passengers;
-        rooms = number_rooms;
-        this.price = price;
-    }
 
     public HotelFilters() {
 
