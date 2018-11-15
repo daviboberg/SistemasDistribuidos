@@ -1,3 +1,5 @@
+
+# Just a data structure
 class Room:
 
 	def __init__(self, id, price, size, hotel_id):

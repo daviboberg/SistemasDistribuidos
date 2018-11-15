@@ -1,23 +1,21 @@
 package Resources;
 
+// Filters used for Airplane search
 public class AirplaneFilters {
+
     public String flight_number;
+    // flight origin
     public String origin;
+    // flight destination
     public String destination;
+    // flight seats
     public int seats;
+    // flight price
     public float price;
+    // flight departure
     public String date;
-    public int number_passengers;
-    public int numbet_of_seats;
-
-    public AirplaneFilters(String origin, String destination, String going_date, int number_passengers, float price) {
-
-        this.origin = origin;
-        this.destination = destination;
-        this.date = going_date;
-        this.number_passengers = number_passengers;
-        this.price = price;
-    }
+    // desired seats
+    public int number_of_seats;
 
     public AirplaneFilters() {
 

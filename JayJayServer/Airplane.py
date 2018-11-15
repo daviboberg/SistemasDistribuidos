@@ -1,4 +1,4 @@
-
+# Just a data structure
 class Airplane:
 
     def __init__(self, id, flight_number, origin, destination, seats, price, date, available_seats):

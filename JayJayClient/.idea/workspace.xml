@@ -1,14 +1,646 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="100de478-1dd1-408a-9a53-b978cb8fb850" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Client/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Resources/Airplane.java" afterDir="false" />
+    <list default="true" id="c176b321-2593-47c1-a62b-84424c8f2681" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Resources/AirplaneFilters.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Resources/Hotel.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Resources/HotelFilters.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Resources/TravelPackage.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Resources/TravelPackageFilters.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/bin/activate" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/bin/activate.csh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/bin/activate.fish" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/bin/easy_install" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/bin/easy_install-3.5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/bin/pip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/bin/pip3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/bin/pip3.5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/bin/python" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/bin/python3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/bin/python3.5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/easy-install.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/EGG-INFO/PKG-INFO" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/EGG-INFO/SOURCES.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/EGG-INFO/dependency_links.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/EGG-INFO/entry_points.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/EGG-INFO/not-zip-safe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/EGG-INFO/requires.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/EGG-INFO/top_level.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/__main__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/basecommand.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/baseparser.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/build_env.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/cache.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/cmdoptions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/commands/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/commands/check.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/commands/completion.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/commands/configuration.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/commands/download.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/commands/freeze.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/commands/hash.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/commands/help.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/commands/install.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/commands/list.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/commands/search.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/commands/show.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/commands/uninstall.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/commands/wheel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/compat.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/configuration.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/download.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/exceptions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/index.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/locations.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/models/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/models/index.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/operations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/operations/check.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/operations/freeze.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/operations/prepare.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/pep425tags.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/req/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/req/req_file.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/req/req_install.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/req/req_set.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/req/req_uninstall.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/resolve.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/status_codes.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/utils/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/utils/appdirs.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/utils/deprecation.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/utils/encoding.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/utils/filesystem.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/utils/glibc.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/utils/hashes.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/utils/logging.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/utils/misc.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/utils/outdated.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/utils/packaging.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/utils/setuptools_build.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/utils/temp_dir.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/utils/typing.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/utils/ui.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/vcs/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/vcs/bazaar.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/vcs/git.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/vcs/mercurial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/vcs/subversion.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/wheel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/appdirs.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/cachecontrol/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/cachecontrol/_cmd.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/cachecontrol/adapter.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/cachecontrol/cache.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/cachecontrol/caches/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/cachecontrol/caches/file_cache.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/cachecontrol/caches/redis_cache.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/cachecontrol/compat.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/cachecontrol/controller.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/cachecontrol/filewrapper.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/cachecontrol/heuristics.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/cachecontrol/serialize.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/cachecontrol/wrapper.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/certifi/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/certifi/__main__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/certifi/cacert.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/certifi/core.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/big5freq.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/big5prober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/chardistribution.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/charsetgroupprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/charsetprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/cli/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/cli/chardetect.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/codingstatemachine.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/compat.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/cp949prober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/enums.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/escprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/escsm.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/eucjpprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/euckrfreq.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/euckrprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/euctwfreq.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/euctwprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/gb2312freq.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/gb2312prober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/hebrewprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/jisfreq.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/jpcntx.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/langbulgarianmodel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/langcyrillicmodel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/langgreekmodel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/langhebrewmodel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/langhungarianmodel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/langthaimodel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/langturkishmodel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/latin1prober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/mbcharsetprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/mbcsgroupprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/mbcssm.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/sbcharsetprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/sbcsgroupprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/sjisprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/universaldetector.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/utf8prober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/version.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/colorama/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/colorama/ansi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/colorama/ansitowin32.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/colorama/initialise.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/colorama/win32.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/colorama/winterm.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/distlib/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/distlib/_backport/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/distlib/_backport/misc.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/distlib/_backport/shutil.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/distlib/_backport/sysconfig.cfg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/distlib/_backport/sysconfig.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/distlib/_backport/tarfile.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/distlib/compat.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/distlib/database.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/distlib/index.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/distlib/locators.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/distlib/manifest.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/distlib/markers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/distlib/metadata.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/distlib/resources.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/distlib/scripts.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/distlib/t32.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/distlib/t64.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/distlib/util.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/distlib/version.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/distlib/w32.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/distlib/w64.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/distlib/wheel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/distro.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/_ihatexml.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/_inputstream.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/_tokenizer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/_trie/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/_trie/_base.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/_trie/datrie.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/_trie/py.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/_utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/constants.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/filters/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/filters/alphabeticalattributes.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/filters/base.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/filters/inject_meta_charset.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/filters/lint.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/filters/optionaltags.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/filters/sanitizer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/filters/whitespace.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/html5parser.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/serializer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/treeadapters/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/treeadapters/genshi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/treeadapters/sax.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/treebuilders/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/treebuilders/base.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/treebuilders/dom.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/treebuilders/etree.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/treebuilders/etree_lxml.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/treewalkers/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/treewalkers/base.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/treewalkers/dom.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/treewalkers/etree.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/treewalkers/etree_lxml.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/treewalkers/genshi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/idna/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/idna/codec.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/idna/compat.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/idna/core.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/idna/idnadata.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/idna/intranges.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/idna/package_data.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/idna/uts46data.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/ipaddress.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/lockfile/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/lockfile/linklockfile.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/lockfile/mkdirlockfile.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/lockfile/pidlockfile.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/lockfile/sqlitelockfile.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/lockfile/symlinklockfile.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/msgpack/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/msgpack/_version.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/msgpack/exceptions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/msgpack/fallback.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/packaging/__about__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/packaging/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/packaging/_compat.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/packaging/_structures.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/packaging/markers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/packaging/requirements.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/packaging/specifiers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/packaging/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/packaging/version.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/pkg_resources/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/pkg_resources/py31compat.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/progress/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/progress/bar.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/progress/counter.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/progress/helpers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/progress/spinner.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/pyparsing.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/pytoml/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/pytoml/core.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/pytoml/parser.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/pytoml/writer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/requests/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/requests/__version__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/requests/_internal_utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/requests/adapters.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/requests/api.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/requests/auth.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/requests/certs.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/requests/compat.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/requests/cookies.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/requests/exceptions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/requests/help.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/requests/hooks.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/requests/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/requests/packages.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/requests/sessions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/requests/status_codes.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/requests/structures.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/requests/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/retrying.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/six.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/_collections.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/connection.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/connectionpool.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/contrib/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/contrib/_securetransport/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/contrib/_securetransport/bindings.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/contrib/_securetransport/low_level.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/contrib/appengine.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/contrib/ntlmpool.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/contrib/pyopenssl.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/contrib/securetransport.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/contrib/socks.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/exceptions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/fields.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/filepost.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/packages/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/packages/backports/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/packages/backports/makefile.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/packages/ordered_dict.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/packages/six.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/packages/ssl_match_hostname/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/packages/ssl_match_hostname/_implementation.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/poolmanager.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/request.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/response.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/util/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/util/connection.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/util/request.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/util/response.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/util/retry.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/util/selectors.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/util/ssl_.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/util/timeout.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/util/url.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/util/wait.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/webencodings/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/webencodings/labels.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/webencodings/mklabels.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/webencodings/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/webencodings/x_user_defined.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/setuptools-39.1.0-py3.5.egg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib/python3.5/site-packages/setuptools.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/easy-install.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/EGG-INFO/PKG-INFO" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/EGG-INFO/SOURCES.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/EGG-INFO/dependency_links.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/EGG-INFO/entry_points.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/EGG-INFO/not-zip-safe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/EGG-INFO/requires.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/EGG-INFO/top_level.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/__main__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/basecommand.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/baseparser.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/build_env.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/cache.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/cmdoptions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/commands/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/commands/check.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/commands/completion.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/commands/configuration.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/commands/download.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/commands/freeze.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/commands/hash.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/commands/help.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/commands/install.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/commands/list.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/commands/search.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/commands/show.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/commands/uninstall.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/commands/wheel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/compat.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/configuration.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/download.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/exceptions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/index.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/locations.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/models/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/models/index.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/operations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/operations/check.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/operations/freeze.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/operations/prepare.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/pep425tags.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/req/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/req/req_file.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/req/req_install.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/req/req_set.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/req/req_uninstall.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/resolve.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/status_codes.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/utils/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/utils/appdirs.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/utils/deprecation.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/utils/encoding.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/utils/filesystem.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/utils/glibc.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/utils/hashes.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/utils/logging.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/utils/misc.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/utils/outdated.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/utils/packaging.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/utils/setuptools_build.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/utils/temp_dir.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/utils/typing.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/utils/ui.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/vcs/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/vcs/bazaar.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/vcs/git.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/vcs/mercurial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/vcs/subversion.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/wheel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/appdirs.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/cachecontrol/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/cachecontrol/_cmd.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/cachecontrol/adapter.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/cachecontrol/cache.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/cachecontrol/caches/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/cachecontrol/caches/file_cache.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/cachecontrol/caches/redis_cache.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/cachecontrol/compat.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/cachecontrol/controller.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/cachecontrol/filewrapper.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/cachecontrol/heuristics.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/cachecontrol/serialize.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/cachecontrol/wrapper.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/certifi/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/certifi/__main__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/certifi/cacert.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/certifi/core.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/big5freq.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/big5prober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/chardistribution.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/charsetgroupprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/charsetprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/cli/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/cli/chardetect.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/codingstatemachine.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/compat.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/cp949prober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/enums.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/escprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/escsm.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/eucjpprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/euckrfreq.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/euckrprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/euctwfreq.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/euctwprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/gb2312freq.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/gb2312prober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/hebrewprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/jisfreq.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/jpcntx.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/langbulgarianmodel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/langcyrillicmodel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/langgreekmodel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/langhebrewmodel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/langhungarianmodel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/langthaimodel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/langturkishmodel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/latin1prober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/mbcharsetprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/mbcsgroupprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/mbcssm.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/sbcharsetprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/sbcsgroupprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/sjisprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/universaldetector.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/utf8prober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/chardet/version.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/colorama/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/colorama/ansi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/colorama/ansitowin32.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/colorama/initialise.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/colorama/win32.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/colorama/winterm.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/distlib/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/distlib/_backport/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/distlib/_backport/misc.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/distlib/_backport/shutil.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/distlib/_backport/sysconfig.cfg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/distlib/_backport/sysconfig.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/distlib/_backport/tarfile.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/distlib/compat.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/distlib/database.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/distlib/index.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/distlib/locators.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/distlib/manifest.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/distlib/markers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/distlib/metadata.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/distlib/resources.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/distlib/scripts.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/distlib/t32.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/distlib/t64.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/distlib/util.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/distlib/version.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/distlib/w32.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/distlib/w64.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/distlib/wheel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/distro.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/_ihatexml.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/_inputstream.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/_tokenizer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/_trie/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/_trie/_base.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/_trie/datrie.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/_trie/py.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/_utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/constants.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/filters/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/filters/alphabeticalattributes.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/filters/base.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/filters/inject_meta_charset.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/filters/lint.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/filters/optionaltags.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/filters/sanitizer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/filters/whitespace.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/html5parser.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/serializer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/treeadapters/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/treeadapters/genshi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/treeadapters/sax.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/treebuilders/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/treebuilders/base.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/treebuilders/dom.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/treebuilders/etree.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/treebuilders/etree_lxml.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/treewalkers/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/treewalkers/base.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/treewalkers/dom.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/treewalkers/etree.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/treewalkers/etree_lxml.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/html5lib/treewalkers/genshi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/idna/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/idna/codec.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/idna/compat.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/idna/core.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/idna/idnadata.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/idna/intranges.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/idna/package_data.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/idna/uts46data.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/ipaddress.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/lockfile/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/lockfile/linklockfile.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/lockfile/mkdirlockfile.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/lockfile/pidlockfile.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/lockfile/sqlitelockfile.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/lockfile/symlinklockfile.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/msgpack/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/msgpack/_version.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/msgpack/exceptions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/msgpack/fallback.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/packaging/__about__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/packaging/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/packaging/_compat.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/packaging/_structures.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/packaging/markers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/packaging/requirements.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/packaging/specifiers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/packaging/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/packaging/version.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/pkg_resources/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/pkg_resources/py31compat.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/progress/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/progress/bar.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/progress/counter.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/progress/helpers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/progress/spinner.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/pyparsing.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/pytoml/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/pytoml/core.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/pytoml/parser.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/pytoml/writer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/requests/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/requests/__version__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/requests/_internal_utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/requests/adapters.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/requests/api.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/requests/auth.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/requests/certs.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/requests/compat.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/requests/cookies.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/requests/exceptions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/requests/help.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/requests/hooks.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/requests/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/requests/packages.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/requests/sessions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/requests/status_codes.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/requests/structures.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/requests/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/retrying.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/six.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/_collections.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/connection.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/connectionpool.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/contrib/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/contrib/_securetransport/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/contrib/_securetransport/bindings.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/contrib/_securetransport/low_level.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/contrib/appengine.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/contrib/ntlmpool.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/contrib/pyopenssl.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/contrib/securetransport.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/contrib/socks.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/exceptions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/fields.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/filepost.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/packages/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/packages/backports/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/packages/backports/makefile.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/packages/ordered_dict.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/packages/six.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/packages/ssl_match_hostname/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/packages/ssl_match_hostname/_implementation.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/poolmanager.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/request.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/response.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/util/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/util/connection.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/util/request.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/util/response.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/util/retry.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/util/selectors.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/util/ssl_.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/util/timeout.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/util/url.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/util/wait.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/webencodings/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/webencodings/labels.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/webencodings/mklabels.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/webencodings/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/webencodings/x_user_defined.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/setuptools-39.1.0-py3.5.egg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/lib64/python3.5/site-packages/setuptools.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JayJayServer/venv2/pyvenv.cfg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Resources/Hotel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Resources/Hotel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Client/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Client/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Client/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Client/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Resources/Airplane.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Resources/Airplane.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Resources/Resource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Resources/Resource.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../JayJayServer/.idea/JayJayServer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../JayJayServer/.idea/JayJayServer.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../JayJayServer/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../JayJayServer/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../JayJayServer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../JayJayServer/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JayJayServer/Airplane.py" beforeDir="false" afterPath="$PROJECT_DIR$/../JayJayServer/Airplane.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../JayJayServer/AirplaneController.py" beforeDir="false" afterPath="$PROJECT_DIR$/../JayJayServer/AirplaneController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JayJayServer/AirplaneRepository.py" beforeDir="false" afterPath="$PROJECT_DIR$/../JayJayServer/AirplaneRepository.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JayJayServer/Controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/../JayJayServer/Controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JayJayServer/DatabaseConnection.py" beforeDir="false" afterPath="$PROJECT_DIR$/../JayJayServer/DatabaseConnection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JayJayServer/Hotel.py" beforeDir="false" afterPath="$PROJECT_DIR$/../JayJayServer/Hotel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JayJayServer/HotelController.py" beforeDir="false" afterPath="$PROJECT_DIR$/../JayJayServer/HotelController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JayJayServer/HotelRepository.py" beforeDir="false" afterPath="$PROJECT_DIR$/../JayJayServer/HotelRepository.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JayJayServer/JsonHelper.py" beforeDir="false" afterPath="$PROJECT_DIR$/../JayJayServer/JsonHelper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JayJayServer/Object.py" beforeDir="false" afterPath="$PROJECT_DIR$/../JayJayServer/Object.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../JayJayServer/Request.py" beforeDir="false" afterPath="$PROJECT_DIR$/../JayJayServer/Request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JayJayServer/Response.py" beforeDir="false" afterPath="$PROJECT_DIR$/../JayJayServer/Response.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JayJayServer/Room.py" beforeDir="false" afterPath="$PROJECT_DIR$/../JayJayServer/Room.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JayJayServer/Router.py" beforeDir="false" afterPath="$PROJECT_DIR$/../JayJayServer/Router.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JayJayServer/Server.py" beforeDir="false" afterPath="$PROJECT_DIR$/../JayJayServer/Server.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../JayJayServer/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/../JayJayServer/database.db" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -19,36 +651,34 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FUSProjectUsageTrigger">
-    <session id="2047277081">
+    <session id="800066278">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.open.time.1" value="1" />
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.12" value="1" />
-          <entry key="project.opened" value="2" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="java" value="2490" />
-          <entry key="xml" value="11" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="JAVA" value="2490" />
-          <entry key="XML" value="11" />
+          <entry key="project.opened" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="2" />
-          <entry key="java" value="6" />
+          <entry key="java" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="2" />
-          <entry key="JAVA" value="6" />
+          <entry key="JAVA" value="7" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="java" value="72" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="72" />
         </counts>
       </usages-collector>
     </session>
@@ -58,8 +688,62 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Client/Client.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+            <state relative-caret-position="91">
+              <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Client/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2280">
+              <caret line="167" selection-start-line="167" selection-end-line="167" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Resources/AirplaneFilters.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Resources/HotelFilters.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Resources/Airplane.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-554">
+              <caret line="39" column="8" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Resources/Hotel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="556">
+              <caret line="95" column="5" selection-start-line="95" selection-start-column="5" selection-end-line="95" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -68,70 +752,24 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Client/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="381">
-              <caret line="253" column="36" lean-forward="true" selection-start-line="253" selection-start-column="36" selection-end-line="253" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Resources/Airplane.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="31" column="23" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Resources/Resource.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+            <state relative-caret-position="180">
+              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>getAll</find>
-      <find>airplane</find>
-      <find>airplanes_return</find>
-      <find>println(</find>
-      <find>print</find>
-    </findStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
-  </component>
-  <component name="GradleLocalSettings">
-    <option name="projectSyncType">
-      <map>
-        <entry key="$PROJECT_DIR$/../../Tesseract/TesseractApp" value="PREVIEW" />
-      </map>
-    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/Resources/Airplane.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Client/Client.java" />
         <option value="$PROJECT_DIR$/src/main/java/Client/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Resources/Hotel.java" />
       </list>
     </option>
   </component>
@@ -141,17 +779,11 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="MavenImportPreferences">
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="importAutomatically" value="true" />
-      </MavenImportingSettings>
-    </option>
-  </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1920" />
-    <option name="width" value="1900" />
-    <option name="height" value="1077" />
+    <option name="x" value="10" />
+    <option name="y" value="20" />
+    <option name="width" value="1260" />
+    <option name="height" value="655" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -159,8 +791,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -210,11 +842,8 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="android.sdk.path" value="$USER_HOME$/Android/Sdk" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541981071720" />
-    <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../.." />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542215569482" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -233,7 +862,7 @@
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Client.Main" />
-      <module name="JayJayClient" />
+      <module name="client" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="Client.*" />
@@ -255,54 +884,50 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="100de478-1dd1-408a-9a53-b978cb8fb850" name="Default Changelist" comment="" />
-      <created>1541970510984</created>
+      <changelist id="c176b321-2593-47c1-a62b-84424c8f2681" name="Default Changelist" comment="" />
+      <created>1542210853490</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1541970510984</updated>
-      <workItem from="1541970512365" duration="8840000" />
-      <workItem from="1541981771095" duration="1979000" />
+      <updated>1542210853490</updated>
+      <workItem from="1542210856316" duration="4718000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10819000" />
+    <option name="totallyTimeSpent" value="4966000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="-1" width="1920" height="1080" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2524013" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14994664" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
-      <window_info id="Image Layers" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info id="Capture Tool" order="6" />
-      <window_info id="simpleUML" order="7" />
+      <window_info id="UI Designer" order="3" />
+      <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Image Layers" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3294979" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39958158" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.15183246" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3291536" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="9" weight="0.3294979" />
-      <window_info anchor="bottom" id="Java Enterprise" order="10" />
-      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="12" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Java Enterprise" order="9" />
+      <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Messages" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="PlantUML" order="3" />
-      <window_info anchor="right" id="Palette" order="4" />
-      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Database" order="5" />
       <window_info anchor="right" id="Maven Projects" order="6" />
-      <window_info anchor="right" id="Database" order="7" />
-      <window_info anchor="right" id="Palette&#9;" order="8" />
-      <window_info anchor="right" id="Theme Preview" order="9" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -312,48 +937,38 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Resources/Resource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/javax/ws/rs/javax.ws.rs-api/2.0.1/javax.ws.rs-api-2.0.1.jar!/javax/ws/rs/client/ClientBuilder.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="42" column="25" selection-start-line="42" selection-start-column="25" selection-end-line="42" selection-end-column="25" />
+        <state relative-caret-position="75">
+          <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/javax/ws/rs/javax.ws.rs-api/2.0.1/javax.ws.rs-api-2.0.1.jar!/javax/ws/rs/client/SyncInvoker.class">
+    <entry file="jar://$MAVEN_REPOSITORY$/javax/ws/rs/javax.ws.rs-api/2.0.1/javax.ws.rs-api-2.0.1.jar!/javax/ws/rs/client/Entity.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="25" column="10" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
+        <state relative-caret-position="75">
+          <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Resources/AirplaneFilters.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="33" column="21" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
+        <state relative-caret-position="45">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Resources/Airplane.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="31" column="23" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Resources/Resource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Client/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+        <state relative-caret-position="-554">
+          <caret line="39" column="8" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -362,26 +977,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Client/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="253" column="36" lean-forward="true" selection-start-line="253" selection-start-column="36" selection-end-line="253" selection-end-column="36" />
+        <state relative-caret-position="2280">
+          <caret line="167" selection-start-line="167" selection-end-line="167" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ProjectJDKs.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Resources/HotelFilters.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Resources/Hotel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="556">
+          <caret line="95" column="5" selection-start-line="95" selection-start-column="5" selection-end-line="95" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Client/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="91">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
   </component>
 </project>
